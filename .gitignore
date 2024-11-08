@@ -1,0 +1,18 @@
+# python stuff
+venv/
+.pylintrc
+__pycache__
+
+# ide stuff
+.vscode
+
+# django stuff
+db.sqlite3
+media/
+
+# temporary files
+*.pyc
+*~
+
+# secret files
+.env
