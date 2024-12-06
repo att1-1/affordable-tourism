@@ -456,4 +456,22 @@ body {
   ul {
     padding-left: 0; /* Убрать стандартные отступы браузера */
   }
-  
+
+/* Стили кнопки */
+/* Это сделал яя */
+.map-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff; /* Цвет фона кнопки */
+  border: none; /* Убираем рамку */
+  border-radius: 5px; /* Закругленные края */
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.map-button:hover {
+  background-color: #0056b3; /* Цвет фона при наведении */
+}
