@@ -1,11 +1,170 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <p>Page content</p>
-</body>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link href="{% static "deps/css/style.css" %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <title>Доступный туризм</title>
+  </head>
+  <body class="page" style="background-image: url('{% static "deps/images/background-img.png"%}')">
+    <header class="page-header">
+      <nav class="main-nav">
+        <p class="logo">
+          <img src="{% static "deps/images/logo.svg" %}" width="80" height="47" alt="Логотип">
+        </p>
+        <ul class="site-navigation">
+          <li class="site-navigation-item">
+            <a href="#">Начало</a>
+          </li>
+          <li class="site-navigation-item">
+            <a href="#">Варианты сдачи</a>
+          </li>
+          <li class="site-navigation-item">
+            <a href="#">Требования испытания</a>
+          </li>
+          <li class="site-navigation-item">
+            <a href="#">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main-content">
+        
+        <article class="blog-article blog-article-1">
+          <div class="blog-article-inner">
+            <div class="blog-article-content">
+              <h3>Консультация с широким активом стала доступной ширнармассам</h3>
+              <p class="blog-article-description">Сложно сказать, почему реплицированные с зарубежных источников,  современные исследования, которые представляют собой яркий пример  континентально-европейского типа политической культуры, будут указаны  как претенденты на роль ключевых факторов.</p>
+            </div>
+            <img class="blog-article-img" src="{% static "deps/images/nature.jpg" %}" width="814" height="428" alt="Природа">
+          </div>
+        </article>
+
+      
+      <article class="blog-article-2">
+        <div class="blog-article-content-2">
+          <h2>В РАМКАХ АКЦИИ ВСЕРОССИЙСКИЙ ДЕНЬ ПВД</h2>
+          <p class="blog-article-description">Совершение похода выходного дня (ПВД) по эталонному маршруту длиной 5-15 км (в  зависимости от возраста участников), со сдачей турнавыков в рамках ПВД в составе сборной плановой группы сформированной для прохождения  испытания в сопровождении инструкторов спортивного туризма (судей по  виду спорта спортивный туризм). </p>
+        </div>
+
+    
+      <section class="Equipment">
+        <h2 class="text-with-line">ИЗУЧИТЕ СПИСОК СНАРЯЖЕНИЯ КОТОРОЕ НЕОБХОДИМО БУДЕТ ВЗЯТЬ С <br>СОБОЙ НА МАРШРУТ</h2>
+        <ul class="cards">
+          <li class="card">
+            <div class="card-content">
+              <h3 class="card-title">Heading</h3>
+              <p class="card-description">Повседневная практика показывает, что существующая теория играет определяющее значение для направлений прогрессивного развития. В частности, новая модель организационной деятельности создаёт предпосылки для форм воздействия. Наше дело не так однозначно, как может показаться: базовый вектор развития не оставляет шанса для системы массового участия. Являясь всего лишь частью общей картины, независимые государства лишь добавляют фракционных разногласий и обнародованы.</p>
+            </div>
+          </li>
+          <li class="card">
+            <div class="card-content">
+              <h3 class="card-title">Heading</h3>
+              <p class="card-description">Повседневная практика показывает, что существующая теория играет определяющее значение для направлений прогрессивного развития. В частности, новая модель организационной деятельности создаёт предпосылки для форм воздействия. Наше дело не так однозначно, как может показаться: базовый вектор развития не оставляет шанса для системы массового участия. Являясь всего лишь частью общей картины, независимые государства лишь добавляют фракционных разногласий и обнародованы.</p>
+            </div>
+          </li>
+          <li class="card">
+            <div class="card-content">
+              <h3 class="card-title">Heading</h3>
+              <p class="card-description">Повседневная практика показывает, что существующая теория играет определяющее значение для направлений прогрессивного развития. В частности, новая модель организационной деятельности создаёт предпосылки для форм воздействия. Наше дело не так однозначно, как может показаться: базовый вектор развития не оставляет шанса для системы массового участия. Являясь всего лишь частью общей картины, независимые государства лишь добавляют фракционных разногласий и обнародованы.</p>
+            </div>
+          </li>
+          <li class="card">
+            <div class="card-content">
+              <h3 class="card-title">Heading</h3>
+              <p class="card-description">Повседневная практика показывает, что существующая теория играет определяющее значение для направлений прогрессивного развития. В частности, новая модель организационной деятельности создаёт предпосылки для форм воздействия. Наше дело не так однозначно, как может показаться: базовый вектор развития не оставляет шанса для системы массового участия. Являясь всего лишь частью общей картины, независимые государства лишь добавляют фракционных разногласий и обнародованы.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="Equipment">
+        <h2 class="text-with-line">ОЗНАКОМЬТЕСЬ С ТЕХНИКОЙ БЕЗОПАСНОСТИ ПРИ ПРОВЕДЕНИИ <br>ПОХОДОВ ВЫХОДНОГО ДНЯ (ПВД) В РАМКАХ СДАЧИ НОРМ ГТО</h2>
+        <ul class="cards-2">
+          <li class="card-2">
+            <div class="card-content">
+              <h3 class="card-title">Heading</h3>
+              <p class="card-description">Господа, начало повседневной работы по формированию позиции требует  от нас анализа форм воздействия. Господа, дальнейшее развитие различных  форм деятельности играет определяющее значение для соответствующих  условий активизации.</p>
+            </div>
+          </li>
+          <li class="card-2">
+            <div class="card-content">
+              <h3 class="card-title">Heading</h3>
+              <p class="card-description">Господа, начало повседневной работы по формированию позиции требует  от нас анализа форм воздействия. Господа, дальнейшее развитие различных  форм деятельности играет определяющее значение для соответствующих  условий активизации.</p>
+            </div>
+          </li>
+          <li class="card-2">
+            <div class="card-content">
+              <h3 class="card-title">Heading</h3>
+              <p class="card-description">Господа, начало повседневной работы по формированию позиции требует  от нас анализа форм воздействия. Господа, дальнейшее развитие различных  форм деятельности играет определяющее значение для соответствующих  условий активизации.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="routes">
+        <h2 class="text-with-line">ВЫБЕРИТЕ ПОДХОДЯЩИЙ МАРШРУТ И СРОКИ <br>БЛИЖАЙШИЙ ГРУППЫ, В КОТОРЫЕ ВЫ СОЖЕТЕ ПОДАТЬ ЗАЯВКУ</h2>
+        <div class = "route-block">
+          <ul class="route">
+            <li class="route-1">
+              <div class="route-content">
+                <p class = "route-card-1">Тут будет текст</p>
+                <p class = "route-card-1">Тут будет текст</p>
+              </div>
+            </li>
+            <li class="route-1">
+              <div class="route-content">
+                <p class = "route-card-2">Тут будет текст</p>
+              </div>
+            </li>
+            <li class="route-1">
+              <div class="route-content">
+                <p class = "route-card-3">Тут будет текст</p>
+                <p class = "route-card-3">Тут будет текст</p>
+                <p class = "route-card-3">Тут будет текст</p>
+              </div>
+            </li>
+            <li class="route-1">
+              <div class="route-content">
+                <p class = "route-card-2">Господа, начало повседневной работы по формированию позиции требует от нас анализа форм воздействия. Господа, дальнейшее развитие различных форм деятельности играет определяющее значение для соответствующих условий активизации.</p>
+              </div>
+            </li>
+            <!-- Кнопка с картографическим материлом !-->
+            <button type='button'>Я кнопка</button>
+          </ul>
+          <div>
+            <img src="{% static "deps/images/map.png" %}" width="522" height="522" alt="Карта маршрутов">
+          </div>
+        </div>
+      </section>
+      
+    </main>
+    <footer class="main-footer">
+      <div class="footer-container">
+        <div class="footer-column">
+            <p class="logo">
+                <img src="{% static "deps/images/logo.svg" %}" width="80" height="47" alt="Логотип">
+            </p>
+        </div>
+        <ul class="footer-navigation">
+            <li class="footer-navigation-item">
+              <a href="#">Начало</a>
+            </li>
+            <li class="footer-navigation-item">
+              <a href="#">Варианты сдачи</a>
+            </li>
+            <li class="footer-navigation-item">
+              <a href="#">Требования испытания</a>
+            </li>
+            <li class="footer-navigation-item">
+              <a href="#">Контакты</a>
+            </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
 </html>
