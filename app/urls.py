@@ -16,26 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+# Для работы с медиафайлами
+from django.conf.urls.static import static
 
-from app.settings import DEBUG
+from app import settings
 
-# # Импорт для сохранения значения переменно DEBUG из файла.env
-# import environ
-# import os
-# from pathlib import Path
-
-# BASE_DIR = Path(__file__).resolve().parent.parent
-
-# env = environ.Env()
-# environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-# DEBUG = env.bool('DEBUG', default=False)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls', namespace='main')),
 ]
 
-if DEBUG:
+if settings.DEBUG:
     urlpatterns += [
         path("__debug__/", include("debug_toolbar.urls")),
     ]
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
