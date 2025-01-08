@@ -5,18 +5,9 @@
   <head>
     <meta charset="utf-8">
     <link href="{% static "deps/css/style.css" %}" rel="stylesheet">
-    {% comment %} Подключение bootstrap {% endcomment %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static "deps/css/bootstrap/bootstrap.min.css" %}">
-    {% comment %} Подключение bootstrap {% endcomment %}
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
     <title>Доступный туризм</title>
   </head>
   <body class="page">
@@ -67,7 +58,7 @@
         <ul class="cards">
           <li class="card">
             <div class="card-content">
-              <h3 class="card-title">ЛИЧНОЕ СНАРЯЖЕНИЕ </h3>
+              <h3 class="card-title">ЛИЧНОЕ СНАРЯЖЕНИЕ </h3>
               <ul class="card-description">
                   <li>Продукты для 2 перекуса на маршруте</li>
                   <li>Термос</li>
@@ -124,7 +115,7 @@
         <ul class="cards-2">
           <li class="card-2">
             <div class="card-content">
-              <h3 class="card-title">УЧАСТНИКИ ОБЯЗАНЫ </h3>
+              <h3 class="card-title">УЧАСТНИКИ ОБЯЗАНЫ </h3>
               <ul class="card-description-2">
                 <li>Иметь необходимо количество личного снаряжения, согласно списка</li>
                 <li>Выполнять все рекомендации инструктора</li>
@@ -160,19 +151,18 @@
           </li>
         </ul>
       </section>
-            
-        <div class="filter">
-          <h2 class="text-with-line">ВЫБЕРИТЕ ПОДХОДЯЩИЙ МАРШРУТ И СРОКИ</h2>
-          <div class="filters">
-            <button>Уровни</button>
-            <button>Протяженность</button>
-            <button>Продолжительность</button>
+          
+          <div class="filter">
+            <h2 class="text-with-line">ВЫБЕРИТЕ ПОДХОДЯЩИЙ МАРШРУТ И СРОКИ</h2>
+            <div class="filters">
+              <button>Уровни</button>
+              <button>Протяженность</button>
+              <button>Продолжительность</button>
+            </div>
           </div>
-        </div>
+
             <div class="container">
-              <!-- Левая часть -->
               <div class="left">
-                  <!-- Первые три строки (2 столбца) -->
                   <div class="grid">
                       <div class="row">
                           <img src="{% static "deps/images/book.png" %}" alt="Иконка">
@@ -204,7 +194,6 @@
                       </div>
                   </div>
       
-                  <!-- Следующие четыре строки -->
                   <div class="row">
                       <img src="{% static "deps/images/Calendar.png" %}" alt="Иконка">
                       <strong>Дата проведения:</strong> 28 сентября 2019 года
@@ -216,7 +205,7 @@
                       </div>
                   </div>
                   <div class="row">
-                    <img src="{% static "deps/images/call.png" %}" alt="Иконка">
+                    <img src="{% static "deps/images/call.png" %}" alt="Иконка" alt="Иконка">
                     <div>
                       <strong>Контактные данные:</strong> Спрякин Василий Павлович, vasiliy_saprykin@mail.ru, 89603640602
                     </div>
@@ -233,7 +222,7 @@
               <!-- Правая часть -->
               <div class="map-container">
                   <div class="map">
-                      <img src="{% static "deps/images/map.jpg" %}" alt="Карта маршрута" width='522', height='522'>
+                      <img src="{% static "deps/images/map.jpg" %}" alt="Карта маршрута">
                   </div>
                   <div class="buttons">
                       <button>Записаться</button>
@@ -250,7 +239,7 @@
       <div class="footer-container">
         <div class="footer-column">
             <p class="logo">
-                <img src="{% static "deps/images/logo.png" %}" width="290" height="75" alt="Логотип">
+              <img src="{% static "deps/images/logo.png" %}" width="290" height="75" alt="Логотип">
             </p>
         </div>
         <ul class="footer-navigation">
@@ -258,19 +247,16 @@
               <a href="#">Начало</a>
             </li>
             <li class="footer-navigation-item">
-              <a href="#">Варианты сдачи</a>
+              <a href="#">Список снаряжения</a>
             </li>
             <li class="footer-navigation-item">
-              <a href="#">Требования испытания</a>
+              <a href="#">Техника безопасности</a>
             </li>
             <li class="footer-navigation-item">
-              <a href="#">Контакты</a>
+              <a href="#">Маршруты</a>
             </li>
         </ul>
       </div>
     </footer>
-    <script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
-    <script src="{% static "deps/js/bootstrap/bootstrap.bundle.min.js" %}"></script>
   </body>
-
 </html>
