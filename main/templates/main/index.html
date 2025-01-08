@@ -1,9 +1,14 @@
 {% load static %}
+load {% load main_tags %}
 
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> 
+    <!-- Подключение bootstrap -->
+    {% comment %} <link rel="stylesheet" href="{% static "deps/css/bootstrap/bootstrap.min.css" %}"> {% endcomment %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Подключение bootstrap -->
     <link href="{% static "deps/css/style.css" %}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,11 +39,11 @@
     </header>
     <main class="main-content">
         
-        <article class="blog-article blog-article-1">
+        <article class="blog-articlee blog-article-1">
           <div class="blog-article-inner">
             <div class="blog-article-content">
               <p class="blog-article-description">Испытание «Туристский поход с проверкой туристских навыков»</p>
-              <h2 class ="title">СВЕРДЛОВСКАЯ ОБЛАСТЬ</h2>
+              <h2 class ="custom-title">СВЕРДЛОВСКАЯ ОБЛАСТЬ</h2>
               <p class="blog-article-description-1">Выполнение нормативов испытания (теста) туристский поход проводится в виде прохождения маршрута протяженностью не менее указанного количества километров, установленных государственными требованиями Всероссийского физкультурно-спортивного комплекса «Готов к труду и обороне» с III по IX ступени, и проверки туристских навыков.</p>
             </div>
             <img class="blog-article-img" src="{% static "deps/images/nature.jpg" %}" width="809" height="476" alt="Природа">
@@ -56,7 +61,7 @@
       <section class="Equipment">
         <h2 class="text-with-line">ИЗУЧИТЕ СПИСОК СНАРЯЖЕНИЯ КОТОРОЕ НЕОБХОДИМО БУДЕТ ВЗЯТЬ С <br>СОБОЙ НА МАРШРУТ</h2>
         <ul class="cards">
-          <li class="card">
+          <li class="custom-card">
             <div class="card-content">
               <h3 class="card-title">ЛИЧНОЕ СНАРЯЖЕНИЕ </h3>
               <ul class="card-description">
@@ -71,7 +76,7 @@
               </ul>
             </div>
           </li>
-          <li class="card">
+          <li class="custom-card">
             <div class="card-content">
               <h3 class="card-title">ОДЕЖДА И ОБУВЬ</h3>
               <ul class="card-description">
@@ -85,7 +90,7 @@
               </ul>
             </div>
           </li>
-          <li class="card">
+          <li class="custom-card">
             <div class="card-content">
               <h3 class="card-title">ДОПОЛНИТЕЛЬНОЕ ОБОРУДОВАНИЕ</h3>
               <ul class="card-description">
@@ -96,7 +101,7 @@
               </ul>
             </div>
           </li>
-          <li class="card">
+          <li class="custom-card">
             <div class="card-content">
               <h3 class="card-title">ГРУППОВОЕ СНАРЯЖЕНИЕ</h3>
               <ul class="card-description">
@@ -154,66 +159,73 @@
           
           <div class="filter">
             <h2 class="text-with-line">ВЫБЕРИТЕ ПОДХОДЯЩИЙ МАРШРУТ И СРОКИ</h2>
-            <div class="filters">
-              <button>Уровни</button>
-              <button>Протяженность</button>
-              <button>Продолжительность</button>
+            <div class="bootstrap-scope">
+              <div class="filters">
+                <button>Уровни</button>
+                <button>Протяженность</button>
+                <button>Продолжительность</button>
+              </div>
             </div>
           </div>
-
+          {% for route in routes %}
             <div class="container">
               <div class="left">
                   <div class="grid">
                       <div class="row">
                           <img src="{% static "deps/images/book.png" %}" alt="Иконка">
-                          <strong>Код маршрута:</strong> 74-3
+                          <strong>Код маршрута:</strong> {{ route.id }}
                       </div>
                       <div class="row">
                           <img src="{% static "deps/images/blank.png" %}" alt="Иконка">
-                          <strong>Уровни:</strong> VI (18-29 лет)
+                          <strong>Уровни:</strong>
+                          {% get_level_and_age route.level %}
                       </div>
                       <div class="row">
                           <img src="{% static "deps/images/clock.png" %}" alt="Иконка">
                           <div>
-                            <strong>Продолжительность:</strong> 7 часов
+                            <strong>Продолжительность:</strong> {{ route.duration }} часов
                           </div>
                       </div>
                       <div class="row">
                           <img src="{% static "deps/images/Map01.png" %}" alt="Иконка">
-                          <strong>Протяженность:</strong> 15 км
+                          <strong>Протяженность:</strong> {{ route.distance }} км
                       </div>
                       <div class="row">
                         <img src="{% static "deps/images/Car.png" %}" alt="Иконка">
                         <div>
-                          <strong>Способ передвижения:</strong> пешком
+                          <strong>Способ передвижения:</strong> {{ route.transportation_method }}
                         </div>
                       </div>
                       <div class="row">
                           <img src="{% static "deps/images/coin.png" %}" alt="Иконка">
-                          <strong>Стоимость:</strong> Бесплатно
+                          <strong>Стоимость:</strong>{% if route.cost == 0 %}
+                            Бесплатно
+                          {% else %}
+                            {{ route.cost }}
+                          {% endif %}
                       </div>
                   </div>
       
                   <div class="row">
                       <img src="{% static "deps/images/Calendar.png" %}" alt="Иконка">
-                      <strong>Дата проведения:</strong> 28 сентября 2019 года
+                      <strong>Дата проведения:</strong> {{ route.event_date }}
                   </div>
                   <div class="row">
                       <img src="{% static "deps/images/home.png" %}" alt="Иконка">
                       <div>
-                        <strong>Проводящая организация:</strong> Ульяновская Федерация спортивного туризма
+                        <strong>Проводящая организация:</strong> {{ route.organizing_agency }}
                       </div>
                   </div>
                   <div class="row">
                     <img src="{% static "deps/images/call.png" %}" alt="Иконка" alt="Иконка">
                     <div>
-                      <strong>Контактные данные:</strong> Спрякин Василий Павлович, vasiliy_saprykin@mail.ru, 89603640602
+                      <strong>Контактные данные:</strong> {{ route.contact_info }}
                     </div>
                   </div>
                   <div class="row">
                     <div>
                       <strong>Проверяемые навыки:</strong> <br>
-                      установка палатки, разжигание костра, ориентирование, вязка узлов, преодоление естественных препятствий (переправа по заранее уложенному бревну без самостраховки, спуск, по склону при помощи перил (веревок), подъем по склону при помощи перил (веревок)), экологические навыки (утилизация, сбор и вынос мусора, восстановление природной среды на местах разведения костра и организации привалов), оказание первой помощи
+                      {{ route.skill_name }}
                       <br>Снаряжение предоставляется.
                     </div>
                   </div>
@@ -222,16 +234,20 @@
               <!-- Правая часть -->
               <div class="map-container">
                   <div class="map">
-                      <img src="{% static "deps/images/map.jpg" %}" alt="Карта маршрута">
+                      <img src="{{ route.image.url }}" alt="{{ route.name }}">
                   </div>
                   <div class="buttons">
-                      <button>Записаться</button>
-                      <button>Картографический материал</button>
+                      <a href="#">
+                        <button>Записаться</button>
+                      </a>
+                      <a href="{{route.map_link}}">
+                        <button>Картографический материал</button>
+                      </a>
                   </div>
               </div>
+            </div>
           </div>
-          </div>
-
+          {% endfor %}
           </ul>
       
     </main>
@@ -258,5 +274,6 @@
         </ul>
       </div>
     </footer>
+    {% comment %} <script src="{% static "deps/js/script.js" %}"></script> {% endcomment %}
   </body>
 </html>

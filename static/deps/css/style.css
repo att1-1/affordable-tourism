@@ -7,6 +7,7 @@ body {
   color: #000000;
   background-image: url("../images/background-img.png");
   background-position: center;
+  
 }
 
 /* header */
@@ -74,7 +75,7 @@ body {
 }
 
 /* blog */
-.title{
+.custom-title{
   margin: 0;
   padding: 0;
   margin-bottom: 15px;
@@ -85,7 +86,7 @@ body {
   color: #026AA2;
 }
 
-.blog-article {
+.blog-articlee {
   width: 100%; /* Занимает всю ширину экрана */
   display: flex; /* Включаем flexbox для выравнивания */
   background-color: #F0F9FF;
@@ -184,7 +185,7 @@ body {
   gap: 100px;
 }
 
-.card {
+.custom-card {
   margin: 0;
   padding: 0;
   width: 480px;
@@ -722,3 +723,63 @@ ul {
 }
 
 /* Шрифты */
+
+/* Dropdown */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 200px;
+  padding: 10px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content form {
+  margin: 0;
+}
+
+.form-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.form-check {
+  margin-bottom: 8px;
+}
+
+.form-check-input {
+  margin-right: 8px;
+}
+
+.btn-submit {
+  background-color: #3498DB;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #2980B9;
+}
+
+.show {
+  display: block;
+}

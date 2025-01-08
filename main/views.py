@@ -1,6 +1,14 @@
-from django.http import HttpResponse
+# pylint: disable=no-member
 from django.shortcuts import render
+
+from main.models import Routes
 
 
 def index(request):
-    return render(request, 'main/index.html')
+    routes = Routes.objects.all()
+    
+    context = {
+        'routes': routes,
+    }
+
+    return render(request, 'main/index.html', context)
