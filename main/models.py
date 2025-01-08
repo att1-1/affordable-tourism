@@ -20,3 +20,6 @@ class Routes(models.Model):
         verbose_name = 'Маршрут'
         verbose_name_plural = 'Маршруты'
         ordering = ('id',)
+
+    def __str__(self):
+        return f'Маршрут уровня {self.level}'

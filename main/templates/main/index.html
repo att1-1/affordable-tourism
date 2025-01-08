@@ -5,29 +5,38 @@
   <head>
     <meta charset="utf-8">
     <link href="{% static "deps/css/style.css" %}" rel="stylesheet">
+    {% comment %} Подключение bootstrap {% endcomment %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static "deps/css/bootstrap/bootstrap.min.css" %}">
+    {% comment %} Подключение bootstrap {% endcomment %}
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
     <title>Доступный туризм</title>
   </head>
-  <body class="page" style="background-image: url('{% static "deps/images/background-img.png"%}')">
+  <body class="page">
     <header class="page-header">
       <nav class="main-nav">
         <p class="logo">
-          <img src="{% static "deps/images/logo.svg" %}" width="80" height="47" alt="Логотип">
+          <img src="{% static "deps/images/logo.png" %}" width="290" height="75" alt="Логотип">
         </p>
         <ul class="site-navigation">
           <li class="site-navigation-item">
             <a href="#">Начало</a>
           </li>
           <li class="site-navigation-item">
-            <a href="#">Варианты сдачи</a>
+            <a href="#">Список снаряжения</a>
           </li>
           <li class="site-navigation-item">
-            <a href="#">Требования испытания</a>
+            <a href="#">Техника безопасности</a>
           </li>
           <li class="site-navigation-item">
-            <a href="#">Контакты</a>
+            <a href="#">Маршруты</a>
           </li>
         </ul>
       </nav>
@@ -37,10 +46,11 @@
         <article class="blog-article blog-article-1">
           <div class="blog-article-inner">
             <div class="blog-article-content">
-              <h3>Консультация с широким активом стала доступной ширнармассам</h3>
-              <p class="blog-article-description">Сложно сказать, почему реплицированные с зарубежных источников,  современные исследования, которые представляют собой яркий пример  континентально-европейского типа политической культуры, будут указаны  как претенденты на роль ключевых факторов.</p>
+              <p class="blog-article-description">Испытание «Туристский поход с проверкой туристских навыков»</p>
+              <h2 class ="title">СВЕРДЛОВСКАЯ ОБЛАСТЬ</h2>
+              <p class="blog-article-description-1">Выполнение нормативов испытания (теста) туристский поход проводится в виде прохождения маршрута протяженностью не менее указанного количества километров, установленных государственными требованиями Всероссийского физкультурно-спортивного комплекса «Готов к труду и обороне» с III по IX ступени, и проверки туристских навыков.</p>
             </div>
-            <img class="blog-article-img" src="{% static "deps/images/nature.jpg" %}" width="814" height="428" alt="Природа">
+            <img class="blog-article-img" src="{% static "deps/images/nature.jpg" %}" width="809" height="476" alt="Природа">
           </div>
         </article>
 
@@ -48,7 +58,7 @@
       <article class="blog-article-2">
         <div class="blog-article-content-2">
           <h2>В РАМКАХ АКЦИИ ВСЕРОССИЙСКИЙ ДЕНЬ ПВД</h2>
-          <p class="blog-article-description">Совершение похода выходного дня (ПВД) по эталонному маршруту длиной 5-15 км (в  зависимости от возраста участников), со сдачей турнавыков в рамках ПВД в составе сборной плановой группы сформированной для прохождения  испытания в сопровождении инструкторов спортивного туризма (судей по  виду спорта спортивный туризм). </p>
+          <p class="blog-article-description-2">Совершение похода выходного дня (ПВД) по эталонному маршруту длиной 5-15 км (в  зависимости от возраста участников), со сдачей турнавыков в рамках ПВД в составе сборной плановой группы сформированной для прохождения  испытания в сопровождении инструкторов спортивного туризма (судей по  виду спорта спортивный туризм). </p>
         </div>
 
     
@@ -57,97 +67,190 @@
         <ul class="cards">
           <li class="card">
             <div class="card-content">
-              <h3 class="card-title">Heading</h3>
-              <p class="card-description">Повседневная практика показывает, что существующая теория играет определяющее значение для направлений прогрессивного развития. В частности, новая модель организационной деятельности создаёт предпосылки для форм воздействия. Наше дело не так однозначно, как может показаться: базовый вектор развития не оставляет шанса для системы массового участия. Являясь всего лишь частью общей картины, независимые государства лишь добавляют фракционных разногласий и обнародованы.</p>
+              <h3 class="card-title">ЛИЧНОЕ СНАРЯЖЕНИЕ </h3>
+              <ul class="card-description">
+                  <li>Продукты для 2 перекуса на маршруте</li>
+                  <li>Термос</li>
+                  <li>Бутылка воды</li>
+                  <li>Туалетные принадлежности</li>
+                  <li>Рюкзак с поясом объемом до 40 литров</li>
+                  <li>Пенка-сидушка</li>
+                  <li>Кружка, миска, ложка, нож (в мешочке)</li>
+                  <li>Фонарик</li>
+              </ul>
             </div>
           </li>
           <li class="card">
             <div class="card-content">
-              <h3 class="card-title">Heading</h3>
-              <p class="card-description">Повседневная практика показывает, что существующая теория играет определяющее значение для направлений прогрессивного развития. В частности, новая модель организационной деятельности создаёт предпосылки для форм воздействия. Наше дело не так однозначно, как может показаться: базовый вектор развития не оставляет шанса для системы массового участия. Являясь всего лишь частью общей картины, независимые государства лишь добавляют фракционных разногласий и обнародованы.</p>
+              <h3 class="card-title">ОДЕЖДА И ОБУВЬ</h3>
+              <ul class="card-description">
+                  <li>Обувь (основная) — ботинки кожаные, закрывающие голеностоп, со шуровкой на рифленой подошве, с толстой стелькой</li>
+                  <li>Обувь (запасная) – кроссовки (сапоги) (с толстой стелькой) </li>
+                  <li>Штормовой костюм однослойный (куртка, брюки). Водоотталкивающая, ветроустойчивая, огнеупорная ткань</li>
+                  <li>Накидка от дождя</li>
+                  <li>Свитер (кофта) легкая, теплосберегающая</li>
+                  <li>Термобелье (в случае если t воздуха ниже 5 градусов)</li>
+                  <li>1 запасной комплект нательного белья (футболка, трусы, носки)</li>
+              </ul>
             </div>
           </li>
           <li class="card">
             <div class="card-content">
-              <h3 class="card-title">Heading</h3>
-              <p class="card-description">Повседневная практика показывает, что существующая теория играет определяющее значение для направлений прогрессивного развития. В частности, новая модель организационной деятельности создаёт предпосылки для форм воздействия. Наше дело не так однозначно, как может показаться: базовый вектор развития не оставляет шанса для системы массового участия. Являясь всего лишь частью общей картины, независимые государства лишь добавляют фракционных разногласий и обнародованы.</p>
+              <h3 class="card-title">ДОПОЛНИТЕЛЬНОЕ ОБОРУДОВАНИЕ</h3>
+              <ul class="card-description">
+                  <li>Обязательно медицинская справка паспортa и полис ОМС </li>
+                  <li>Спички или зажигалка в гермоупаковке</li>
+                  <li>Компас</li>
+                  <li>Индивидуальная аптечка</li>
+              </ul>
             </div>
           </li>
           <li class="card">
             <div class="card-content">
-              <h3 class="card-title">Heading</h3>
-              <p class="card-description">Повседневная практика показывает, что существующая теория играет определяющее значение для направлений прогрессивного развития. В частности, новая модель организационной деятельности создаёт предпосылки для форм воздействия. Наше дело не так однозначно, как может показаться: базовый вектор развития не оставляет шанса для системы массового участия. Являясь всего лишь частью общей картины, независимые государства лишь добавляют фракционных разногласий и обнародованы.</p>
+              <h3 class="card-title">ГРУППОВОЕ СНАРЯЖЕНИЕ</h3>
+              <ul class="card-description">
+                  <li>Пила</li>
+                  <li>Топор</li>
+                  <li>Котелок (не менее 3 литров)</li>
+                  <li>Пакет для мусора до 80 литров</li>
+              </ul>
             </div>
           </li>
         </ul>
       </section>
 
       <section class="Equipment">
-        <h2 class="text-with-line">ОЗНАКОМЬТЕСЬ С ТЕХНИКОЙ БЕЗОПАСНОСТИ ПРИ ПРОВЕДЕНИИ <br>ПОХОДОВ ВЫХОДНОГО ДНЯ (ПВД) В РАМКАХ СДАЧИ НОРМ ГТО</h2>
+        <h2 class="text-with-line">ОЗНАКОМЬТЕСЬ С ТЕХНИКОЙ БЕЗОПАСНОСТИ ПРИ ПРОВЕДЕНИИ ПОХОДОВ <br>ВЫХОДНОГО ДНЯ (ПВД) В РАМКАХ СДАЧИ НОРМ ГТО</h2>
         <ul class="cards-2">
           <li class="card-2">
             <div class="card-content">
-              <h3 class="card-title">Heading</h3>
-              <p class="card-description">Господа, начало повседневной работы по формированию позиции требует  от нас анализа форм воздействия. Господа, дальнейшее развитие различных  форм деятельности играет определяющее значение для соответствующих  условий активизации.</p>
+              <h3 class="card-title">УЧАСТНИКИ ОБЯЗАНЫ </h3>
+              <ul class="card-description-2">
+                <li>Иметь необходимо количество личного снаряжения, согласно списка</li>
+                <li>Выполнять все рекомендации инструктора</li>
+                <li>Соблюдать правила поведения и установленные режимы передвижения как в городской, так и антропогенной средах</li>
+                <li>Соблюдать правила техники безопасности и личной гигиены на протяжении всего мероприятия</li>
+                <li>При возникновении потенциальной опасной ситуации незамедлительно принять меры по устранению опасности или выйти за пределы опасной зоны</li>
+                <li>При получении травмы сообщить об этом инструктору и принять меры по оказанию неотложной помощи</li>
+                <li>Пакет для мусора до 80 литров</li>            
+              </ul>
             </div>
           </li>
           <li class="card-2">
             <div class="card-content">
-              <h3 class="card-title">Heading</h3>
-              <p class="card-description">Господа, начало повседневной работы по формированию позиции требует  от нас анализа форм воздействия. Господа, дальнейшее развитие различных  форм деятельности играет определяющее значение для соответствующих  условий активизации.</p>
+              <h3 class="card-title">В РАМКАХ ПВДЗАПРЕЩАЕТСЯ</h3>
+              <ul class="card-description-2">
+                <li>Разведение костров в необорудованных костровой ямой местах, вне мест указанных инструктором</li>
+                <li>Пробовать на вкус ягоды и орехи, а так же прочие части растений</li>
+                <li>Прикасаться к представителям фауны леса и города</li>
+                <li>Пить воду из неизвестных источников</li>         
+              </ul>
             </div>
           </li>
           <li class="card-2">
             <div class="card-content">
-              <h3 class="card-title">Heading</h3>
-              <p class="card-description">Господа, начало повседневной работы по формированию позиции требует  от нас анализа форм воздействия. Господа, дальнейшее развитие различных  форм деятельности играет определяющее значение для соответствующих  условий активизации.</p>
+              <h3 class="card-title">В РАМКАХ ПВД РЕКОМЕНДУЕТСЯ</h3>
+              <ul class="card-description-2">
+                <li>Уважать местные традиции и обычаи</li>
+                <li>Бережно относится к памятникам природы, истории и культуры</li>
+                <li>Беречь личное и групповое снаряжение</li>
+                <li>Оказывать поддержку товарищам при прохождении маршрута</li>           
+              </ul>
             </div>
           </li>
         </ul>
       </section>
-
-      <section class="routes">
-        <h2 class="text-with-line">ВЫБЕРИТЕ ПОДХОДЯЩИЙ МАРШРУТ И СРОКИ <br>БЛИЖАЙШИЙ ГРУППЫ, В КОТОРЫЕ ВЫ СОЖЕТЕ ПОДАТЬ ЗАЯВКУ</h2>
-        <div class = "route-block">
-          <ul class="route">
-            <li class="route-1">
-              <div class="route-content">
-                <p class = "route-card-1">Тут будет текст</p>
-                <p class = "route-card-1">Тут будет текст</p>
-              </div>
-            </li>
-            <li class="route-1">
-              <div class="route-content">
-                <p class = "route-card-2">Тут будет текст</p>
-              </div>
-            </li>
-            <li class="route-1">
-              <div class="route-content">
-                <p class = "route-card-3">Тут будет текст</p>
-                <p class = "route-card-3">Тут будет текст</p>
-                <p class = "route-card-3">Тут будет текст</p>
-              </div>
-            </li>
-            <li class="route-1">
-              <div class="route-content">
-                <p class = "route-card-2">Господа, начало повседневной работы по формированию позиции требует от нас анализа форм воздействия. Господа, дальнейшее развитие различных форм деятельности играет определяющее значение для соответствующих условий активизации.</p>
-              </div>
-            </li>
-            <!-- Кнопка с картографическим материалом -->
-            <button type="button" class="map-button" onclick="location.href='https://nakarte.me/#m=14/57.44633/60.87009&l=O&nktl=KYzn1WEGgsjw1WXhPUwomg'">Картографический материал</button>
-          </ul>
-          <div>
-            <img src="{% static "deps/images/map.jpg" %}" width="522" height="522" alt="Карта маршрутов">
+            
+        <div class="filter">
+          <h2 class="text-with-line">ВЫБЕРИТЕ ПОДХОДЯЩИЙ МАРШРУТ И СРОКИ</h2>
+          <div class="filters">
+            <button>Уровни</button>
+            <button>Протяженность</button>
+            <button>Продолжительность</button>
           </div>
         </div>
-      </section>
+            <div class="container">
+              <!-- Левая часть -->
+              <div class="left">
+                  <!-- Первые три строки (2 столбца) -->
+                  <div class="grid">
+                      <div class="row">
+                          <img src="{% static "deps/images/book.png" %}" alt="Иконка">
+                          <strong>Код маршрута:</strong> 74-3
+                      </div>
+                      <div class="row">
+                          <img src="{% static "deps/images/blank.png" %}" alt="Иконка">
+                          <strong>Уровни:</strong> VI (18-29 лет)
+                      </div>
+                      <div class="row">
+                          <img src="{% static "deps/images/clock.png" %}" alt="Иконка">
+                          <div>
+                            <strong>Продолжительность:</strong> 7 часов
+                          </div>
+                      </div>
+                      <div class="row">
+                          <img src="{% static "deps/images/Map01.png" %}" alt="Иконка">
+                          <strong>Протяженность:</strong> 15 км
+                      </div>
+                      <div class="row">
+                        <img src="{% static "deps/images/Car.png" %}" alt="Иконка">
+                        <div>
+                          <strong>Способ передвижения:</strong> пешком
+                        </div>
+                      </div>
+                      <div class="row">
+                          <img src="{% static "deps/images/coin.png" %}" alt="Иконка">
+                          <strong>Стоимость:</strong> Бесплатно
+                      </div>
+                  </div>
+      
+                  <!-- Следующие четыре строки -->
+                  <div class="row">
+                      <img src="{% static "deps/images/Calendar.png" %}" alt="Иконка">
+                      <strong>Дата проведения:</strong> 28 сентября 2019 года
+                  </div>
+                  <div class="row">
+                      <img src="{% static "deps/images/home.png" %}" alt="Иконка">
+                      <div>
+                        <strong>Проводящая организация:</strong> Ульяновская Федерация спортивного туризма
+                      </div>
+                  </div>
+                  <div class="row">
+                    <img src="{% static "deps/images/call.png" %}" alt="Иконка">
+                    <div>
+                      <strong>Контактные данные:</strong> Спрякин Василий Павлович, vasiliy_saprykin@mail.ru, 89603640602
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div>
+                      <strong>Проверяемые навыки:</strong> <br>
+                      установка палатки, разжигание костра, ориентирование, вязка узлов, преодоление естественных препятствий (переправа по заранее уложенному бревну без самостраховки, спуск, по склону при помощи перил (веревок), подъем по склону при помощи перил (веревок)), экологические навыки (утилизация, сбор и вынос мусора, восстановление природной среды на местах разведения костра и организации привалов), оказание первой помощи
+                      <br>Снаряжение предоставляется.
+                    </div>
+                  </div>
+              </div>
+      
+              <!-- Правая часть -->
+              <div class="map-container">
+                  <div class="map">
+                      <img src="{% static "deps/images/map.jpg" %}" alt="Карта маршрута" width='522', height='522'>
+                  </div>
+                  <div class="buttons">
+                      <button>Записаться</button>
+                      <button>Картографический материал</button>
+                  </div>
+              </div>
+          </div>
+          </div>
+
+          </ul>
       
     </main>
     <footer class="main-footer">
       <div class="footer-container">
         <div class="footer-column">
             <p class="logo">
-                <img src="{% static "deps/images/logo.svg" %}" width="80" height="47" alt="Логотип">
+                <img src="{% static "deps/images/logo.png" %}" width="290" height="75" alt="Логотип">
             </p>
         </div>
         <ul class="footer-navigation">
@@ -166,5 +269,8 @@
         </ul>
       </div>
     </footer>
+    <script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
+    <script src="{% static "deps/js/bootstrap/bootstrap.bundle.min.js" %}"></script>
   </body>
+
 </html>
