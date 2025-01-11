@@ -1,12 +1,11 @@
 {% load static %}
-load {% load main_tags %}
+{% load main_tags %}
 
 <!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="utf-8"> 
     <!-- Подключение bootstrap -->
-    {% comment %} <link rel="stylesheet" href="{% static "deps/css/bootstrap/bootstrap.min.css" %}"> {% endcomment %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Подключение bootstrap -->
     <link href="{% static "deps/css/style.css" %}" rel="stylesheet">
@@ -157,18 +156,84 @@ load {% load main_tags %}
         </ul>
       </section>
           
-          <div class="filter">
-            <h2 class="text-with-line">ВЫБЕРИТЕ ПОДХОДЯЩИЙ МАРШРУТ И СРОКИ</h2>
-            <div class="bootstrap-scope">
-              <div class="filters">
-                <button>Уровни</button>
-                <button>Протяженность</button>
-                <button>Продолжительность</button>
-              </div>
+      <div class="filter">
+        <h2 class="text-with-line">ВЫБЕРИТЕ ПОДХОДЯЩИЙ МАРШРУТ И СРОКИ</h2>
+        <div class="filters">
+          <!-- Фильтрация по уровням -->
+          <div class="dropdown">
+            <button onclick="toggleDropdown('levelDropdown')" class="dropbtn">Уровни</button>
+            <div id="levelDropdown" class="dropdown-content">
+              <form action="" method="get">
+                <p class="form-title">Сортировать:</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="level" id="levelDefault" value="default"
+                  {% if not request.GET.level or request.GET.level == 'default' %}checked{% endif %}>
+                  <label class="form-check-label" for="levelDefault">По умолчанию</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="level" id="levelAsc" value="level" 
+                  {% if request.GET.level == 'level' %}checked{% endif %}>
+                  <label class="form-check-label" for="levelAsc">От простых к сложным</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="level" id="levelDesc" value="-level" 
+                  {% if request.GET.level == '-level' %}checked{% endif %}>
+                  <label class="form-check-label" for="levelDesc">От сложных к простым</label>
+                </div>
+                <button type="submit" class="btn-submit">Применить</button>
+              </form>
             </div>
           </div>
+        
+          <!-- Фильтрация по протяженности -->
+          <div class="dropdown">
+            <button onclick="toggleDropdown('distanceDropdown')" class="dropbtn">Протяженность</button>
+            <div id="distanceDropdown" class="dropdown-content">
+              <form action="" method="get">
+                <p class="form-title">Сортировать:</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="distance" id="distanceDefault" value="default" checked>
+                  <label class="form-check-label" for="distanceDefault">По умолчанию</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="distance" id="distanceAsc" value="distance">
+                  <label class="form-check-label" for="distanceAsc">От коротких к длинным</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="distance" id="distanceDesc" value="-distance">
+                  <label class="form-check-label" for="distanceDesc">От длинных к коротким</label>
+                </div>
+                <button type="submit" class="btn-submit">Применить</button>
+              </form>
+            </div>
+          </div>
+        
+          <!-- Фильтрация по продолжительности -->
+          <div class="dropdown">
+            <button onclick="toggleDropdown('durationDropdown')" class="dropbtn">Продолжительность</button>
+            <div id="durationDropdown" class="dropdown-content">
+              <form action="" method="get">
+                <p class="form-title">Сортировать:</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="duration" id="durationDefault" value="default" checked>
+                  <label class="form-check-label" for="durationDefault">По умолчанию</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="duration" id="durationAsc" value="duration">
+                  <label class="form-check-label" for="durationAsc">От небольших к долгим</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="duration" id="durationDesc" value="-duration">
+                  <label class="form-check-label" for="durationDesc">От долгих к небольшим</label>
+                </div>
+                <button type="submit" class="btn-submit">Применить</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
           {% for route in routes %}
-            <div class="container">
+            <div class="containerr">
               <div class="left">
                   <div class="grid">
                       <div class="row">
@@ -237,11 +302,11 @@ load {% load main_tags %}
                       <img src="{{ route.image.url }}" alt="{{ route.name }}">
                   </div>
                   <div class="buttons">
-                      <a href="#">
-                        <button>Записаться</button>
+                      <a href="#" class='orange-button'>
+                        <button class='orange-button'>Записаться</button>
                       </a>
-                      <a href="{{route.map_link}}">
-                        <button>Картографический материал</button>
+                      <a href="{{route.map_link}}" class='blue-button-adress blue-button'>
+                        <button class='blue-button'>Картографический материал</button>
                       </a>
                   </div>
               </div>
@@ -274,6 +339,8 @@ load {% load main_tags %}
         </ul>
       </div>
     </footer>
-    {% comment %} <script src="{% static "deps/js/script.js" %}"></script> {% endcomment %}
+  <script src="{% static "deps/js/script.js" %}">
+
+  </script>
   </body>
 </html>

@@ -1,5 +1,6 @@
 # pylint: disable=no-member
 from django import template
+from django.utils.http import urlencode
 
 
 register = template.Library()
@@ -23,3 +24,10 @@ def get_level_and_age(level):
     if age:
         return f"{level}: {age}"
     return f"{level}: Возраст не указан"
+
+
+@register.simple_tag(takes_context=True)
+def change_params(context, **kwargs):
+    query = context['request'].GET.dict()
+    query.update(kwargs)
+    return urlencode(query)

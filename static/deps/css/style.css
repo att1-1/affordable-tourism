@@ -576,12 +576,12 @@ ul {
     border: 1px solid #FFFFFF;
 }
 
-.container {
+.containerr {
   margin: 0 auto;
   width: 1200px;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
   flex-direction: row;
   display: flex;
   gap: 20px;
@@ -657,15 +657,7 @@ ul {
   color: white;
 }
 
-.buttons button:first-child {
-  background-color: #ff9800;
-  margin-right: 10px;
-}
 
-.buttons button:last-child {
-  padding: 28px 21px;
-  background-color: #0086C9;
-}
 
 .buttons button:hover {
   opacity: 0.9;
@@ -782,4 +774,20 @@ ul {
 
 .show {
   display: block;
+}
+
+.orange-button{
+  background-color: #ff9800 !important;
+  margin-right: 10px;
+  border-radius: 15px;
+}
+
+.buttons button:last-child {
+  padding: 28px 21px;
+  background-color: #0086C9;
+  border-radius: 15px;
+}
+.blue-button-adress{
+  width: 250px;
+  margin: 0px;
 }
