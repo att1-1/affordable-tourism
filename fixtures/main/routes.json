@@ -1,0 +1,135 @@
+[
+    {
+        "model": "main.routes",
+        "pk": 1,
+        "fields": {
+            "name": "Выездная экскурсия на родину знаменитого горщика Данилы Кондратьевича Зверева (Режевской район, село Черемисское, деревня Колташи)",
+            "level": 4,
+            "duration": 2.0,
+            "distance": 7.0,
+            "transportation_method": "Авто и пеший маршрут",
+            "cost": 0,
+            "event_date": "2025-01-08",
+            "organizing_agency": "Людмила Анатольевна",
+            "contact_info": "8 (34364) 52–1–44 \r\n89126083070 (Людмила Анатольевна) \r\nЭл. почта: chilm@muzey-rezh.ru",
+            "skill_name": "Оказание первой помощи",
+            "route_passport": "https://mir.midural.ru/sites/default/files/files/1.vyezdnaya_ekskursiya_na_rodinu_znamenitogo_gorshchika_danily_kondratevicha_zvereva.pdf",
+            "map_link": "https://nakarte.me/#m=14/57.44633/60.87009&l=O&nktl=KYzn1WEGgsjw1WXhPUwomg",
+            "image": "main_images/Koltashy.jpg"
+        }
+    },
+    {
+        "model": "main.routes",
+        "pk": 2,
+        "fields": {
+            "name": "Ревдинский калейдоскоп (город Ревда)",
+            "level": 8,
+            "duration": 3.5,
+            "distance": 3.0,
+            "transportation_method": "Пешком",
+            "cost": 0,
+            "event_date": "2025-01-08",
+            "organizing_agency": "Управление культуры и молодежной политики администрации городского округа Ревда",
+            "contact_info": "Управление культуры и молодежной политики администрации городского округа Ревда  \r\n8(34397) 30748, 34764",
+            "skill_name": "Оказание первой помощи, слушать маму",
+            "route_passport": "https://mir.midural.ru/sites/default/files/files/5.revdinskiy_kaleydoskop_pasport.pdf",
+            "map_link": "https://nakarte.me/#m=15/56.79534/59.93840&l=O&nktl=TA8Gcgsg8pB_1alxT7pjbA",
+            "image": "main_images/kaleydoskop.jpg"
+        }
+    },
+    {
+        "model": "main.routes",
+        "pk": 3,
+        "fields": {
+            "name": "“Каменск-Уральский: история и современность” (город Каменск-Уральский)",
+            "level": 8,
+            "duration": 5.0,
+            "distance": 7.0,
+            "transportation_method": "Пешком",
+            "cost": 0,
+            "event_date": "2025-01-08",
+            "organizing_agency": "МБУ ДО «Центр дополнительного образования»",
+            "contact_info": "МБУ ДО «Центр дополнительного образования» \r\n8 (3439) 30-69-19\r\nk-u.c_tur@mail.ru",
+            "skill_name": "Оказание первой помощи, слушать папу",
+            "route_passport": "https://mir.midural.ru/sites/default/files/files/10._kamensk-uralskiy_istoriya_i_sovremennost.pdf",
+            "map_link": "https://nakarte.me/#m=14/56.42223/61.90405&l=O&nktl=1k1WD22qebqG3xrO8B97aA",
+            "image": "main_images/kamensk-uralskiy.jpg"
+        }
+    },
+    {
+        "model": "main.routes",
+        "pk": 4,
+        "fields": {
+            "name": "Малахитовая линия",
+            "level": 8,
+            "duration": 2.0,
+            "distance": 6.0,
+            "transportation_method": "Пешком",
+            "cost": 0,
+            "event_date": "2025-01-10",
+            "organizing_agency": "МБУ «Центр развития туризма города Нижний Тагил»",
+            "contact_info": "МБУ «Центр развития туризма города Нижний \r\nТагил» \r\n8 800 30 22 765 \r\nturizmnt@mail.ru",
+            "skill_name": "Оказание первой помощи",
+            "route_passport": "https://mir.midural.ru/sites/default/files/files/18._malahitovaya_liniya.pdf",
+            "map_link": "https://nakarte.me/#m=15/57.90462/59.95877&l=O&nktl=nWsZ7COZ-A5LmzeAJZv1ag",
+            "image": "main_images/Malakhitovaya-liniya.jpg"
+        }
+    },
+    {
+        "model": "main.routes",
+        "pk": 5,
+        "fields": {
+            "name": "“По долине реки Серги” (парк “Оленьи ручьи”, Нижнесергинский район, п.Бажуково)",
+            "level": 8,
+            "duration": 3.5,
+            "distance": 6.5,
+            "transportation_method": "Пешком",
+            "cost": 522,
+            "event_date": "2025-01-10",
+            "organizing_agency": "Государственное бюджетное учреждение Свердловской области \"Природный парк \"Оленьи ручьи\"",
+            "contact_info": "8(952)1419155\r\nhttps://olenpark.ru/",
+            "skill_name": "установка палатки, разжигание костра, ориентирование, вязка узлов, преодоление естественных препятствий, экологические навыки, оказание первой помощи",
+            "route_passport": "https://mir.midural.ru/sites/default/files/files/11.po_doline_reki_sergi.pdf",
+            "map_link": "https://nakarte.me/#m=15/56.51865/59.24120&l=O&nktl=rN1WNfUg_FxNEpSAjspUDA",
+            "image": "main_images/Reka_Sergi.jpg"
+        }
+    },
+    {
+        "model": "main.routes",
+        "pk": 6,
+        "fields": {
+            "name": "Гора Медведь-Камень  (Свердловская область, г. Нижний Тагил)",
+            "level": 5,
+            "duration": 24.0,
+            "distance": 16.0,
+            "transportation_method": "Пешком",
+            "cost": 0,
+            "event_date": "2025-01-10",
+            "organizing_agency": "Муниципальное бюджетное учреждение дополнительного образования \"Городская станция юных туристов\", Свердловская область, г. Нижний Тагил",
+            "contact_info": "г. Нижний Тагил, ул. Челюскинцев, д. 61. \r\nтел: 8 (3435) 25 33 92,  \r\nе-mail: polus.nt@mail.ru",
+            "skill_name": "установка палатки, разжигание костра, ориентирование, вязка узлов, преодоление естественных мпрепятствий, экологические навыки, оказание первой помощи",
+            "route_passport": "https://mir.midural.ru/sites/default/files/files/15.gora_medved_kamen.pdf",
+            "map_link": "https://nakarte.me/#m=13/58.00460/59.89772&l=O&nktl=hQqlw4P2QtqImx924vrnNA",
+            "image": "main_images/Medved-Kamen.jpg"
+        }
+    },
+    {
+        "model": "main.routes",
+        "pk": 7,
+        "fields": {
+            "name": "Гора Синяя (Поселок Баранчинский, Кушвинский городской округ)",
+            "level": 4,
+            "duration": 24.0,
+            "distance": 16.0,
+            "transportation_method": "Пешком",
+            "cost": 0,
+            "event_date": "2025-01-10",
+            "organizing_agency": "Муниципальное бюджетное учреждение дополнительного образования \"Городская станция юных туристов\", Свердловская область, г. Нижний Тагил",
+            "contact_info": "г. Нижний Тагил, ул. Челюскинцев, д. 61. \r\nтел: 8 (3435) 25 33 92,  \r\nе-mail: polus.nt@mail.ru",
+            "skill_name": "установка палатки, разжигание костра, ориентирование, вязка узлов, преодоление естественных препятствий, экологические навыки, оказание первой помощи",
+            "route_passport": "https://mir.midural.ru/sites/default/files/files/16.gora_sinyayaya.pdf",
+            "map_link": "https://nakarte.me/#m=12/58.15993/59.68340&l=O/Q/C/Z&nktl=J646-qdx7UM_5v_eK2xiTw",
+            "image": "main_images/Gora-Sinyaya.jpg"
+        }
+    }
+]
