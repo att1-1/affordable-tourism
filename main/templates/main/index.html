@@ -14,9 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="{% static "deps/favicon/favicon.png" %}">
-    <link rel="icon" type="image/x-icon" href="favicon.ico" href="{% static "deps/favicon/favicon.ico" %}">
-    
-     
+    <link rel="icon" type="image/x-icon" href="{% static "deps/favicon/favicon.ico" %}">
     <title>Доступный туризм</title>
   </head>
   <body class="page">
@@ -304,7 +302,7 @@
               <!-- Правая часть -->
               <div class="map-container">
                   <div class="map">
-                      <img src="{{ route.image.url }}" alt="{{ route.name }}">
+                      <img src="{{ route.image.url }}" alt="{{ route.name }}" class='image-border'>
                   </div>
                   <div class="buttons">
                       <a href="#" class='orange-button'>
