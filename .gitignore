@@ -8,7 +8,7 @@ __pycache__
 
 # django stuff
 db.sqlite3
-media/
+# media/
 
 # temporary files
 *.pyc
