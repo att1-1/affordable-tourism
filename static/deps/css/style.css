@@ -43,7 +43,7 @@ body {
   margin: 0;
   margin-right: 40px;
   list-style: none;
-  max-width: 604px;
+  max-width: 630px;
 }
 
 .site-navigation-item {
@@ -416,17 +416,36 @@ body {
   display: flex;
   list-style: none;
   gap: 10px;
-  width: 604px;
+  width: 630px;
   padding: 0;
-  margin: 25px 0;
+  margin: 0;
 }
 
 .footer-navigation-item {
   margin-bottom: 12px;
+  margin-right: 15px;
 }
 
 .footer-navigation-item:last-child {
   margin-bottom: 0;
+  margin-right: 0;
+}
+.site-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  margin-right: 40px;
+  list-style: none;
+  max-width: 630px;
+}
+
+.site-navigation-item {
+  margin-right: 10px;
+}
+
+.site-navigation-item:last-child {
+  margin-right: 0;
 }
 
 .footer-navigation-item a {
@@ -616,6 +635,10 @@ ul {
   background-color: #FFFFFF;
   font-size: 16px;
   line-height: 20px;
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .row img {
@@ -802,4 +825,8 @@ ul {
   border-radius: 7px; /* Радиус скругления */
   display: block; /* Чтобы изображение правильно вписывалось */
   object-fit: cover; /* Чтобы изображение корректно заполняло рамку */
+}
+
+.blur{
+  background-color: rgba(255, 255, 255, 0.5);
 }
