@@ -1,8 +1,12 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto Flex", sans-serif;
-  font-size: 20px;
+  /* font-family: "Roboto Flex", sans-serif;
+  font-size: 20px; */
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   line-height: 24px;
   color: #000000;
   background-image: url("../images/background-img.png");
