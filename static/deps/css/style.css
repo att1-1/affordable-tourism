@@ -807,6 +807,7 @@ ul {
   background-color: #ff9800 !important;
   margin-right: 10px;
   border-radius: 15px;
+  text-align: center;
 }
 
 .buttons button:last-child {
