@@ -831,3 +831,151 @@ ul {
 .blur{
   background-color: rgba(255, 255, 255, 0.5);
 }
+
+/* Стили для формы фильтрации */
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filter-group label {
+  font-weight: bold;
+}
+
+.filter-group input, .filter-group select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Сохраняем стили для сортировки (ваши текущие) */
+.dropdown-content {
+  background: white;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.btn-submit {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Кастомные стили для синей темы */
+:root {
+  --primary-blue: #2c3e50;
+  --secondary-blue: #3498db;
+  --light-blue: #ecf0f1;
+}
+
+/* Стили для dropdown */
+.dropdown .btn {
+  background: var(--primary-blue);
+  border: 2px solid var(--secondary-blue);
+  color: white;
+  transition: all 0.3s;
+}
+
+.dropdown .btn:hover {
+  background: var(--secondary-blue);
+  border-color: var(--primary-blue);
+}
+
+.dropdown-menu {
+  border: 2px solid var(--secondary-blue);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.form-title {
+  color: var(--primary-blue);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Стили для radio-кнопок */
+.form-check-input:checked {
+  background-color: var(--secondary-blue);
+  border-color: var(--primary-blue);
+}
+
+.form-check-label {
+  color: var(--primary-blue);
+  cursor: pointer;
+}
+
+.form-check {
+  margin-bottom: 0.5rem;
+}
+
+/* Стиль для кнопки */
+.btn-submit {
+  background: var(--secondary-blue);
+  width: 100%;
+  margin-top: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.btn-submit:hover {
+  background: var(--primary-blue);
+}
+
+/* Анимация dropdown */
+.dropdown-menu {
+  display: none;
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Стили для формы фильтрации */
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filter-group label {
+  font-weight: bold;
+}
+
+.filter-group input, .filter-group select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Сохраняем стили для сортировки (ваши текущие) */
+.dropdown-content {
+  background: white;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.btn-submit {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
