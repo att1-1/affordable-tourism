@@ -1,4 +1,4 @@
-from django.db import models    
+from django.db import models
 
 class Routes(models.Model):
     name = models.CharField(max_length=150, verbose_name='Название')
