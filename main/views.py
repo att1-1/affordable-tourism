@@ -6,17 +6,17 @@ from main.models import Route
 
 def index(request):
 
-    routes = Route.objects.all()
+    routes = Route.objects.all().prefetch_related('age_groups', 'seasons', 'skills')
 
     # === ФИЛЬТРАЦИЯ ===
-    level = request.GET.get('level')  # Уровень сложности (например, "I", "II")
-    min_distance = request.GET.get('min_distance')  # Минимальная протяженность
-    max_distance = request.GET.get('max_distance')  # Максимальная протяженность
-    min_duration = request.GET.get('min_duration')  # Минимальная продолжительность
-    max_duration = request.GET.get('max_duration')  # Максимальная продолжительность
+    age_group = request.GET.get('age_group')
+    min_distance = request.GET.get('min_distance')
+    max_distance = request.GET.get('max_distance')
+    min_duration = request.GET.get('min_duration')
+    max_duration = request.GET.get('max_duration')
 
-    if level and level != "default":
-        routes = routes.filter(level=level)
+    if age_group:
+        routes = routes.filter(age_groups__code=age_group)
     if min_distance:
         routes = routes.filter(distance__gte=min_distance)
     if max_distance:
@@ -26,12 +26,12 @@ def index(request):
     if max_duration:
         routes = routes.filter(duration__lte=max_duration)
 
-    # === СОРТИРОВКА === (ваш текущий код)
-    sort_by = request.GET.get('sort_by')  # Параметр сортировки (например, "distance", "-duration")
-    if sort_by and sort_by != "default":
+    # === СОРТИРОВКА ===
+    sort_by = request.GET.get('sort_by', 'id')
+    if sort_by in ['distance', 'duration', 'cost']:
         routes = routes.order_by(sort_by)
 
     context = {
-        'routes': routes,
+        'routes': routes
     }
     return render(request, 'main/index.html', context)

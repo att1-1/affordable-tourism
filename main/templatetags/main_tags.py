@@ -31,3 +31,17 @@ def change_params(context, **kwargs):
     query = context['request'].GET.dict()
     query.update(kwargs)
     return urlencode(query)
+
+
+@register.filter
+def hours_format(value):
+    try:
+        hours = float(value)
+        if hours == 1:
+            return "час"
+        elif 2 <= hours <= 4:
+            return "часа"
+        else:
+            return "часов"
+    except:
+        return "часов"
