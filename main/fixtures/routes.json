@@ -1,0 +1,156 @@
+[
+  {
+    "model": "main.route",
+    "pk": 1,
+    "fields": {
+      "name": "Выездная экскурсия на родину знаменитого горщика Данилы Кондратьевича Зверева (Режевской район, село Черемисское, деревня Колташи)",
+      "distance": 7.0,
+      "duration": 2.0,
+      "transportation_method": "пеший",
+      "cost": 0,
+      "event_dates": "2025-01-08",
+      "organizer_name": "Людмила Анатольевна",
+      "organizer_phone": "8 (34364) 52–1–44",
+      "organizer_email": "chilm@muzey-rezh.ru",
+      "organization": "Людмила Анатольевна",
+      "route_passport": "https://mir.midural.ru/sites/default/files/files/1.vyezdnaya_ekskursiya_na_rodinu_znamenitogo_gorshchika_danily_kondratevicha_zvereva.pdf",
+      "map_link": "https://nakarte.me/#m=14/57.44633/60.87009&l=O&nktl=KYzn1WEGgsjw1WXhPUwomg",
+      "image": "main_images/Koltashy.jpg",
+      "age_groups": [2],
+      "seasons": [5],
+      "skills": [6]
+    }
+  },
+  {
+    "model": "main.route",
+    "pk": 2,
+    "fields": {
+      "name": "Ревдинский калейдоскоп (город Ревда)",
+      "distance": 3.0,
+      "duration": 3.5,
+      "transportation_method": "пеший",
+      "cost": 0,
+      "event_dates": "2025-01-08",
+      "organizer_name": "Управление культуры и молодежной политики",
+      "organizer_phone": "8(34397) 30748",
+      "organizer_email": null,
+      "organization": "Управление культуры и молодежной политики администрации городского округа Ревда",
+      "route_passport": "https://mir.midural.ru/sites/default/files/files/5.revdinskiy_kaleydoskop_pasport.pdf",
+      "map_link": "https://nakarte.me/#m=15/56.79534/59.93840&l=O&nktl=TA8Gcgsg8pB_1alxT7pjbA",
+      "image": "main_images/kaleydoskop.jpg",
+      "age_groups": [2],
+      "seasons": [5],
+      "skills": [6]
+    }
+  },
+  {
+    "model": "main.route",
+    "pk": 3,
+    "fields": {
+      "name": "Каменск-Уральский: история и современность (город Каменск-Уральский)",
+      "distance": 7.0,
+      "duration": 5.0,
+      "transportation_method": "пеший",
+      "cost": 0,
+      "event_dates": "2025-01-08",
+      "organizer_name": "МБУ ДО «Центр дополнительного образования»",
+      "organizer_phone": "8 (3439) 30-69-19",
+      "organizer_email": "k-u.c_tur@mail.ru",
+      "organization": "МБУ ДО «Центр дополнительного образования»",
+      "route_passport": "https://mir.midural.ru/sites/default/files/files/10._kamensk-uralskiy_istoriya_i_sovremennost.pdf",
+      "map_link": "https://nakarte.me/#m=14/56.42223/61.90405&l=O&nktl=1k1WD22qebqG3xrO8B97aA",
+      "image": "main_images/kamensk-uralskiy.jpg",
+      "age_groups": [2],
+      "seasons": [5],
+      "skills": [6]
+    }
+  },
+  {
+    "model": "main.route",
+    "pk": 4,
+    "fields": {
+      "name": "Малахитовая линия",
+      "distance": 6.0,
+      "duration": 2.0,
+      "transportation_method": "пеший",
+      "cost": 0,
+      "event_dates": "2025-01-10",
+      "organizer_name": "МБУ «Центр развития туризма города Нижний Тагил»",
+      "organizer_phone": "8 800 30 22 765",
+      "organizer_email": "turizmnt@mail.ru",
+      "organization": "МБУ «Центр развития туризма города Нижний Тагил»",
+      "route_passport": "https://mir.midural.ru/sites/default/files/files/18._malahitovaya_liniya.pdf",
+      "map_link": "https://nakarte.me/#m=15/57.90462/59.95877&l=O&nktl=nWsZ7COZ-A5LmzeAJZv1ag",
+      "image": "main_images/Malakhitovaya-liniya.jpg",
+      "age_groups": [2],
+      "seasons": [5],
+      "skills": [6]
+    }
+  },
+  {
+    "model": "main.route",
+    "pk": 5,
+    "fields": {
+      "name": "По долине реки Серги (парк «Оленьи ручьи», Нижнесергинский район, п.Бажуково)",
+      "distance": 6.5,
+      "duration": 3.5,
+      "transportation_method": "пеший",
+      "cost": 522,
+      "event_dates": "2025-01-10",
+      "organizer_name": "Природный парк «Оленьи ручьи»",
+      "organizer_phone": "8(952)1419155",
+      "organizer_email": null,
+      "organization": "Государственное бюджетное учреждение Свердловской области \"Природный парк \"Оленьи ручьи\"",
+      "route_passport": "https://mir.midural.ru/sites/default/files/files/11.po_doline_reki_sergi.pdf",
+      "map_link": "https://nakarte.me/#m=15/56.51865/59.24120&l=O&nktl=rN1WNfUg_FxNEpSAjspUDA",
+      "image": "main_images/Reka_Sergi.jpg",
+      "age_groups": [2],
+      "seasons": [1,2,3,4],
+      "skills": [1,2,3,4,5,6,7]
+    }
+  },
+  {
+    "model": "main.route",
+    "pk": 6,
+    "fields": {
+      "name": "Гора Медведь-Камень (Свердловская область, г. Нижний Тагил)",
+      "distance": 16.0,
+      "duration": 24.0,
+      "transportation_method": "пеший",
+      "cost": 0,
+      "event_dates": "2025-01-10",
+      "organizer_name": "Городская станция юных туристов",
+      "organizer_phone": "8 (3435) 25 33 92",
+      "organizer_email": "polus.nt@mail.ru",
+      "organization": "Муниципальное бюджетное учреждение дополнительного образования \"Городская станция юных туристов\", Свердловская область, г. Нижний Тагил",
+      "route_passport": "https://mir.midural.ru/sites/default/files/files/15.gora_medved_kamen.pdf",
+      "map_link": "https://nakarte.me/#m=13/58.00460/59.89772&l=O&nktl=hQqlw4P2QtqImx924vrnNA",
+      "image": "main_images/Medved-Kamen.jpg",
+      "age_groups": [1,2],
+      "seasons": [1,2,3,4],
+      "skills": [1,2,3,4,5,6,7]
+    }
+  },
+  {
+    "model": "main.route",
+    "pk": 7,
+    "fields": {
+      "name": "Гора Синяя (Поселок Баранчинский, Кушвинский городской округ)",
+      "distance": 16.0,
+      "duration": 24.0,
+      "transportation_method": "пеший",
+      "cost": 0,
+      "event_dates": "2025-01-10",
+      "organizer_name": "Городская станция юных туристов",
+      "organizer_phone": "8 (3435) 25 33 92",
+      "organizer_email": "polus.nt@mail.ru",
+      "organization": "Муниципальное бюджетное учреждение дополнительного образования \"Городская станция юных туристов\", Свердловская область, г. Нижний Тагил",
+      "route_passport": "https://mir.midural.ru/sites/default/files/files/16.gora_sinyayaya.pdf",
+      "map_link": "https://nakarte.me/#m=12/58.15993/59.68340&l=O/Q/C/Z&nktl=J646-qdx7UM_5v_eK2xiTw",
+      "image": "main_images/Gora-Sinyaya.jpg",
+      "age_groups": [1],
+      "seasons": [1,2,3,4],
+      "skills": [1,2,3,4,5,6,7]
+    }
+  }
+]

@@ -1,0 +1,26 @@
+[
+    {
+      "model": "main.agegroup",
+      "pk": 1,
+      "fields": {
+        "code": "III",
+        "description": "14-18 лет"
+      }
+    },
+    {
+      "model": "main.agegroup",
+      "pk": 2,
+      "fields": {
+        "code": "IV",
+        "description": "18+ лет"
+      }
+    },
+    {
+      "model": "main.agegroup",
+      "pk": 3,
+      "fields": {
+        "code": "V",
+        "description": "Опытные туристы"
+      }
+    }
+  ]

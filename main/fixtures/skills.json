@@ -1,0 +1,9 @@
+[
+    {"model": "main.skill", "pk": 1, "fields": {"code": "1", "description": "Установка палатки"}},
+    {"model": "main.skill", "pk": 2, "fields": {"code": "2", "description": "Разжигание костра"}},
+    {"model": "main.skill", "pk": 3, "fields": {"code": "3", "description": "Преодоление препятствий"}},
+    {"model": "main.skill", "pk": 4, "fields": {"code": "4", "description": "Вязка узлов"}},
+    {"model": "main.skill", "pk": 5, "fields": {"code": "5", "description": "Ориентирование"}},
+    {"model": "main.skill", "pk": 6, "fields": {"code": "6", "description": "Первая помощь"}},
+    {"model": "main.skill", "pk": 7, "fields": {"code": "7", "description": "Экологические навыки"}}
+  ]

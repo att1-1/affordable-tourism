@@ -1,12 +1,12 @@
 # pylint: disable=no-member
 from django.shortcuts import render
 
-from main.models import Routes
+from main.models import Route
 
 
 def index(request):
 
-    routes = Routes.objects.all()
+    routes = Route.objects.all()
 
     # === ФИЛЬТРАЦИЯ ===
     level = request.GET.get('level')  # Уровень сложности (например, "I", "II")

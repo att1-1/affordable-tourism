@@ -167,105 +167,81 @@
       </section>
           
       <div class="filter">
-        <h2 class="text-with-line pt-sans-bold blur">ФИЛЬТРАЦИЯ И СОРТИРОВКА МАРШРУТОВ</h2>
-        
-        <!-- === ФИЛЬТРАЦИЯ === -->
-        <form method="get" action="" class="filter-form">
-            <div class="filter-group">
-                <label>Уровень:</label>
-                <select name="level">
-                    <option value="default">Все уровни</option>
-                    <option value="I">I</option>
-                    <option value="II">II</option>
-                    <option value="III">III</option>
-                    <option value="IV">IV</option>
-                </select>
+        <h2 class="text-with-line pt-sans-bold blur">ВЫБЕРИТЕ ПОДХОДЯЩИЙ МАРШРУТ И СРОКИ</h2>
+        <div class="filters">
+          <!-- Фильтрация по уровням -->
+          <div class="dropdown">
+            <button onclick="toggleDropdown('levelDropdown')" class="dropbtn pt-sans-bold">Уровни</button>
+            <div id="levelDropdown" class="dropdown-content">
+              <form action="" method="get">
+                <p class="form-title">Сортировать:</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="level" id="levelDefault" value="default"
+                  {% if not request.GET.level or request.GET.level == 'default' %}checked{% endif %}>
+                  <label class="form-check-label" for="levelDefault">По умолчанию</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="level" id="levelAsc" value="level" 
+                  {% if request.GET.level == 'level' %}checked{% endif %}>
+                  <label class="form-check-label" for="levelAsc">От простых к сложным</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="level" id="levelDesc" value="-level" 
+                  {% if request.GET.level == '-level' %}checked{% endif %}>
+                  <label class="form-check-label" for="levelDesc">От сложных к простым</label>
+                </div>
+                <button type="submit" class="btn-submit">Применить</button>
+              </form>
             </div>
-    
-            <div class="filter-group">
-                <label>Протяженность (км):</label>
-                <input type="number" name="min_distance" placeholder="От" value="{{ request.GET.min_distance }}">
-                <input type="number" name="max_distance" placeholder="До" value="{{ request.GET.max_distance }}">
-            </div>
-    
-            <div class="filter-group">
-                <label>Продолжительность (часы):</label>
-                <input type="number" name="min_duration" placeholder="От" value="{{ request.GET.min_duration }}">
-                <input type="number" name="max_duration" placeholder="До" value="{{ request.GET.max_duration }}">
-            </div>
-    
-            <button type="submit" class="btn-submit">Применить фильтры</button>
-        </form>
-    
-        <div class="filter">
-          <h2 class="text-with-line pt-sans-bold blur">ФИЛЬТРАЦИЯ И СОРТИРОВКА МАРШРУТОВ</h2>
-          
-          <!-- === ФИЛЬТРАЦИЯ === -->
-          <form method="get" action="" class="filter-form">
-              <div class="filter-group">
-                  <label>Уровень:</label>
-                  <select name="level">
-                      <option value="default">Все уровни</option>
-                      <option value="I">I</option>
-                      <option value="II">II</option>
-                      <option value="III">III</option>
-                      <option value="IV">IV</option>
-                  </select>
-              </div>
-      
-              <div class="filter-group">
-                  <label>Протяженность (км):</label>
-                  <input type="number" name="min_distance" placeholder="От" value="{{ request.GET.min_distance }}">
-                  <input type="number" name="max_distance" placeholder="До" value="{{ request.GET.max_distance }}">
-              </div>
-      
-              <div class="filter-group">
-                  <label>Продолжительность (часы):</label>
-                  <input type="number" name="min_duration" placeholder="От" value="{{ request.GET.min_duration }}">
-                  <input type="number" name="max_duration" placeholder="До" value="{{ request.GET.max_duration }}">
-              </div>
-      
-              <button type="submit" class="btn-submit">Применить фильтры</button>
-          </form>
-      
-          <!-- === СОРТИРОВКА (ваш текущий код) === -->
-          <div class="filters">
-              <div class="dropdown">
-                  <button onclick="toggleDropdown('levelDropdown')" class="dropbtn pt-sans-bold">Сортировка по уровню</button>
-                  <div id="levelDropdown" class="dropdown-content">
-                      <form method="get" action="">
-                          <!-- Передаём текущие параметры фильтрации -->
-                          <input type="hidden" name="level" value="{{ request.GET.level }}">
-                          <input type="hidden" name="min_distance" value="{{ request.GET.min_distance }}">
-                          <input type="hidden" name="max_distance" value="{{ request.GET.max_distance }}">
-                          <input type="hidden" name="min_duration" value="{{ request.GET.min_duration }}">
-                          <input type="hidden" name="max_duration" value="{{ request.GET.max_duration }}">
-
-
-                          <p class="form-title">Сортировать:</p>
-                          <div class="form-check">
-                              <input type="radio" name="sort_by" id="sortDefault" value="default" 
-                                  {% if not request.GET.sort_by or request.GET.sort_by == 'default' %}checked{% endif %}>
-                              <label for="sortDefault">По умолчанию</label>
-                          </div>
-                          <div class="form-check">
-                              <input type="radio" name="sort_by" id="sortLevelAsc" value="level" 
-                                  {% if request.GET.sort_by == 'level' %}checked{% endif %}>
-                              <label for="sortLevelAsc">По уровню (↑)</label>
-                          </div>
-                          <div class="form-check">
-                              <input type="radio" name="sort_by" id="sortLevelDesc" value="-level" 
-                                  {% if request.GET.sort_by == '-level' %}checked{% endif %}>
-                              <label for="sortLevelDesc">По уровню (↓)</label>
-                          </div>
-                          <button type="submit" class="btn-submit">Применить</button>
-                      </form>
-                  </div>
-              </div>
           </div>
-      </div>
-            
         
+          <!-- Фильтрация по протяженности -->
+          <div class="dropdown">
+            <button onclick="toggleDropdown('distanceDropdown')" class="dropbtn pt-sans-bold">Протяженность</button>
+            <div id="distanceDropdown" class="dropdown-content">
+              <form action="" method="get">
+                <p class="form-title">Сортировать:</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="distance" id="distanceDefault" value="default" checked>
+                  <label class="form-check-label" for="distanceDefault">По умолчанию</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="distance" id="distanceAsc" value="distance">
+                  <label class="form-check-label" for="distanceAsc">От коротких к длинным</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="distance" id="distanceDesc" value="-distance">
+                  <label class="form-check-label" for="distanceDesc">От длинных к коротким</label>
+                </div>
+                <button type="submit" class="btn-submit">Применить</button>
+              </form>
+            </div>
+          </div>
+        
+          <!-- Фильтрация по продолжительности -->
+          <div class="dropdown">
+            <button onclick="toggleDropdown('durationDropdown')" class="dropbtn pt-sans-bold">Продолжительность</button>
+            <div id="durationDropdown" class="dropdown-content">
+              <form action="" method="get">
+                <p class="form-title">Сортировать:</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="duration" id="durationDefault" value="default" checked>
+                  <label class="form-check-label" for="durationDefault">По умолчанию</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="duration" id="durationAsc" value="duration">
+                  <label class="form-check-label" for="durationAsc">От небольших к долгим</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="duration" id="durationDesc" value="-duration">
+                  <label class="form-check-label" for="durationDesc">От долгих к небольшим</label>
+                </div>
+                <button type="submit" class="btn-submit">Применить</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
           {% for route in routes %}
             <div class="containerr">
               <div class="left">
