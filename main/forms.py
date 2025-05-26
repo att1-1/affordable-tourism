@@ -5,9 +5,9 @@ from .models import Comment
 class CommentForm(forms.ModelForm):
     author_name = forms.CharField(
         label='Ваше имя',
-        required=False,  # Необязательное поле
+        required=False,
         widget=forms.TextInput(attrs={
-            'placeholder': 'Иван Иванов (необязательно)'
+            'placeholder': 'Иван Иванов'
         })
     )
     
@@ -21,4 +21,3 @@ class CommentForm(forms.ModelForm):
                 'placeholder': 'Оставьте ваш комментарий...'
             })
         }
-        
