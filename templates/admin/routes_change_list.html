@@ -1,11 +1,11 @@
 {% extends "admin/change_list.html" %}
-{% load i18n admin_urls %}
 
 {% block object-tools-items %}
-    {{ block.super }}
-    <li>
-        <a href="import-excel/" class="addlink">
-            <span class="icon">📤</span> Импорт из Excel
-        </a>
-    </li>
+  <li>
+    <a href="export-excel/" class="addlink">📥 Скачать Excel</a>
+  </li>
+  <li>
+    <a href="import-excel/" class="addlink">📤 Загрузить Excel</a>
+  </li>
+  {{ block.super }}
 {% endblock %}
