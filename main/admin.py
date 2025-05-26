@@ -44,7 +44,7 @@ class ExportImportMixin:
             ws.append([
                 route.id,
                 route.name,
-                ','.join(ag.code for ag in route.age_groups.all()),
+                ','.join(str(ag.id) for ag in route.age_groups.all()),
                 route.distance,
                 route.duration,
                 route.transportation_method,
