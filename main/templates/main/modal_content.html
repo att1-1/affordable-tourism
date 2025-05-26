@@ -1,0 +1,40 @@
+{% load static %}
+<div class="comments-section">
+    <h2>Комментарии к маршруту "{{ route.name }}"</h2>
+    
+    <form onsubmit="submitComment(event)">
+        {% csrf_token %}
+        <div class="form-group">
+            <input 
+                type="text" 
+                name="author_name" 
+                placeholder="Ваше имя (необязательно)"
+                class="form-control"
+            >
+        </div>
+        <div class="form-group">
+            <textarea 
+                name="text" 
+                class="form-control"
+                rows="3"
+                placeholder="Ваш комментарий..."
+                required
+            ></textarea>
+        </div>
+        <button type="submit" class="btn">Отправить</button>
+    </form>
+
+    <div class="comments-list">
+        {% for comment in comments %}
+        <div class="comment">
+            <div class="comment-header">
+                <span class="author">{{ comment.author_name }}</span>
+                <span class="date">{{ comment.created_at|date:"d.m.Y H:i" }}</span>
+            </div>
+            <p class="comment-text">{{ comment.text }}</p>
+        </div>
+        {% empty %}
+        <p>Пока нет комментариев. Будьте первым!</p>
+        {% endfor %}
+    </div>
+</div>

@@ -319,37 +319,6 @@
                         <br>Снаряжение предоставляется.
                     </div>
                 </div>
-                  <!-- Шаблон комментариев -->
-                  <div class="comments-section">
-                    <h3>Комментарии ({{ comments.count }})</h3>
-                    
-                    <form method="post">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            {{ form.author_name }}
-                        </div>
-                        <div class="form-group">
-                            {{ form.text }}
-                        </div>
-                        <button type="submit" class="btn btn-primary">Отправить</button>
-                    </form>
-                    
-                    <div class="comments-list">
-                        {% for comment in comments %}
-                        <div class="comment">
-                            <div class="comment-header">
-                                <span class="author">
-                                    {{ comment.author_name }}
-                                </span>
-                                <span class="date">{{ comment.created_at|date:"d.m.Y H:i" }}</span>
-                            </div>
-                            <div class="comment-text">{{ comment.text }}</div>
-                        </div>
-                        {% empty %}
-                        <p>Пока нет комментариев. Будьте первым!</p>
-                        {% endfor %}
-                    </div>
-                  </div>
               </div>
       
               <!-- Правая часть -->
@@ -366,7 +335,23 @@
                       <a href="{{route.map_link}}" class='blue-button-adress blue-button'>
                         <button class='blue-button'>Картографический материал</button>
                       </a>
+                      <button 
+                      class="comments-btn" 
+                      data-route-id="{{ route.id }}"
+                      onclick="openModal({{ route.id }})"
+                  >
+                      Комментарии ({{ route.comments.count }})
+                  </button>
                   </div>
+              </div>
+              <!-- Модальное окно -->
+              <div id="commentsModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <div id="modal-body">
+                        <!-- Здесь будет загружаться контент -->
+                    </div>
+                </div>
               </div>
             </div>
           </div>
@@ -402,3 +387,72 @@
   </script>
   </body>
 </html>
+
+
+<script>
+  let currentRouteId = null;
+  
+  function openModal(routeId) {
+      currentRouteId = routeId;
+      const modal = document.getElementById('commentsModal');
+      modal.style.display = "block";
+      
+      // Загрузка комментариев
+      fetch(`/get-comments/${routeId}/`)
+          .then(response => response.text())
+          .then(html => {
+              document.getElementById('modal-body').innerHTML = html;
+          });
+  }
+  
+  function closeModal() {
+      document.getElementById('commentsModal').style.display = "none";
+  }
+  
+  // Закрытие при клике вне окна
+  window.onclick = function(event) {
+      if (event.target == document.getElementById('commentsModal')) {
+          closeModal();
+      }
+  }
+  
+  // Отправка формы
+  function submitComment(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    
+    // Получаем CSRF-токен из формы
+    const csrfToken = form.querySelector('[name=csrfmiddlewaretoken]').value;
+    
+    fetch(`/submit-comment/${currentRouteId}/`, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'X-CSRFToken': csrfToken,
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => {
+        if (!response.ok) throw new Error('Ошибка сети');
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            form.reset();
+            const commentsList = form.closest('.comments-section').querySelector('.comments-list');
+            commentsList.innerHTML = data.html;
+            
+            // Обновляем счетчик комментариев на кнопке
+            const commentBtn = document.querySelector(`[data-route-id="${currentRouteId}"]`);
+            if (commentBtn) {
+                commentBtn.textContent = `Комментарии (${data.count})`;
+            }
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Ошибка при отправке комментария');
+    });
+  }
+  </script>
