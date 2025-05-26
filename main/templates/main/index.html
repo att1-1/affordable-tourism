@@ -319,6 +319,37 @@
                         <br>Снаряжение предоставляется.
                     </div>
                 </div>
+                  <!-- Шаблон комментариев -->
+                  <div class="comments-section">
+                    <h3>Комментарии ({{ comments.count }})</h3>
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{ form.author_name }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.text }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </form>
+                    
+                    <div class="comments-list">
+                        {% for comment in comments %}
+                        <div class="comment">
+                            <div class="comment-header">
+                                <span class="author">
+                                    {{ comment.author_name }}
+                                </span>
+                                <span class="date">{{ comment.created_at|date:"d.m.Y H:i" }}</span>
+                            </div>
+                            <div class="comment-text">{{ comment.text }}</div>
+                        </div>
+                        {% empty %}
+                        <p>Пока нет комментариев. Будьте первым!</p>
+                        {% endfor %}
+                    </div>
+                  </div>
               </div>
       
               <!-- Правая часть -->
