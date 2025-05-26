@@ -51,7 +51,7 @@ class ExportImportMixin:
                 route.cost,
                 route.event_dates,
                 ','.join(s.name for s in route.seasons.all()),
-                ','.join(sk.code for sk in route.skills.all()),
+                ','.join(sk.description for sk in route.skills.all()),
                 route.organizer_name,
                 route.organizer_phone,
                 route.organizer_email,
@@ -133,20 +133,44 @@ class ExportImportMixin:
                 'map_link': row['Карта'],
             }
         )
-
         # Обрабатываем M2M поля
         self.process_m2m(row['Возрастные ступени'], route.age_groups, AgeGroup, 'code')
         self.process_m2m(row['Сезоны'], route.seasons, Season, 'name')
         self.process_m2m(row['Навыки'], route.skills, Skill, 'code')
 
-    def process_m2m(self, values, m2m_field, model, field):
+        skill_descriptions = [s.strip() for s in str(row['Навыки']).split(',') if s.strip()]
+        skills = []
+    
+        for desc in skill_descriptions:
+            skill, created = Skill.objects.get_or_create(
+                description__iexact=desc,  # Поиск без учёта регистра
+                defaults={'code': str(Skill.objects.count() + 1), 'description': desc}
+            )
+            skills.append(skill)
+    
+        route.skills.set(skills)
+
+
+
+    def process_m2m(self, values, m2m_field, model, field='description'):
         current = set(m2m_field.all())
         new = set()
-        
+
         for value in str(values).split(','):
             value = value.strip()
             if value:
-                obj, _ = model.objects.get_or_create(**{field: value})
+                # Нормализация: удаляем лишние пробелы и приводим к нижнему регистру
+                normalized = ' '.join(value.lower().split())
+                
+                # Ищем существующий навык (с учётом нормализации)
+                obj = model.objects.filter(description__iexact=normalized).first()
+                
+                if not obj:
+                    # Создаём новый навык с автоматическим кодом
+                    last_code = model.objects.order_by('-code').first().code
+                    new_code = str(int(last_code) + 1) if last_code else '1'
+                    obj = model.objects.create(code=new_code, description=value)
+                
                 new.add(obj)
         
         m2m_field.set(new)
