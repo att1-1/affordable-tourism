@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Skill(models.Model):
     code = models.CharField(max_length=10, unique=True, verbose_name='Код навыка')
     description = models.TextField(verbose_name='Описание')
@@ -85,3 +84,35 @@ class Route (models.Model):
 
     def __str__(self):
         return str(self.name)
+
+
+class Comment(models.Model):
+    route = models.ForeignKey(
+        'Route', 
+        on_delete=models.CASCADE, 
+        related_name='comments',
+        verbose_name='Маршрут'
+    )
+    author_name = models.CharField(
+        max_length=100, 
+        verbose_name='Имя автора',
+        blank=True,  # Разрешаем анонимные комментарии
+        default='Аноним'
+    )
+    text = models.TextField(verbose_name='Текст комментария')
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Дата создания'
+    )
+    is_approved = models.BooleanField(
+        default=False, 
+        verbose_name='Одобрено'
+    )
+    
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'Комментарий к "{self.route}" от {self.author_name}'
