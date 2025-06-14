@@ -17,7 +17,7 @@
       "map_link": "https://nakarte.me/#m=14/57.44633/60.87009&l=O&nktl=KYzn1WEGgsjw1WXhPUwomg",
       "image": "main_images/Koltashy.jpg",
       "age_groups": [2],
-      "seasons": [5],
+      "seasons": [1,2,3,4],
       "skills": [6]
     }
   },
@@ -39,7 +39,7 @@
       "map_link": "https://nakarte.me/#m=15/56.79534/59.93840&l=O&nktl=TA8Gcgsg8pB_1alxT7pjbA",
       "image": "main_images/kaleydoskop.jpg",
       "age_groups": [2],
-      "seasons": [5],
+      "seasons": [1,2,3,4],
       "skills": [6]
     }
   },
@@ -61,7 +61,7 @@
       "map_link": "https://nakarte.me/#m=14/56.42223/61.90405&l=O&nktl=1k1WD22qebqG3xrO8B97aA",
       "image": "main_images/kamensk-uralskiy.jpg",
       "age_groups": [2],
-      "seasons": [5],
+      "seasons": [1,2,3,4],
       "skills": [6]
     }
   },
@@ -83,7 +83,7 @@
       "map_link": "https://nakarte.me/#m=15/57.90462/59.95877&l=O&nktl=nWsZ7COZ-A5LmzeAJZv1ag",
       "image": "main_images/Malakhitovaya-liniya.jpg",
       "age_groups": [2],
-      "seasons": [5],
+      "seasons": [1,2,3,4],
       "skills": [6]
     }
   },

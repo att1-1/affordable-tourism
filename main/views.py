@@ -12,6 +12,8 @@ from main.models import Route, Skill, AgeGroup, Season, Comment
 def index(request):
     routes = Route.objects.all().prefetch_related('age_groups', 'seasons', 'skills')
 
+
+
     # === СОРТИРОВКА ===
     # Сортировка по уровню (возрастным группам)
     if 'level' in request.GET:
@@ -41,6 +43,7 @@ def index(request):
 
     context = {
         'routes': routes
+        
     }
     return render(request, 'main/index.html', context)
 

@@ -26,12 +26,5 @@
       "fields": {
         "name": "Осень"
       }
-    },
-    {
-      "model": "main.season",
-      "pk": 5,
-      "fields": {
-        "name": "Круглый год"
-      }
     }
   ]
