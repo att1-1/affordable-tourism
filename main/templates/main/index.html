@@ -169,15 +169,15 @@
       <div class="filter">
         <h2 class="text-with-line pt-sans-bold blur">ВЫБЕРИТЕ ПОДХОДЯЩИЙ МАРШРУТ И СРОКИ</h2>
         <div class="filters">
-          <!-- Фильтрация по уровням -->
+          <!-- Сортировка по уровням (возрастным группам) -->
           <div class="dropdown">
             <button onclick="toggleDropdown('levelDropdown')" class="dropbtn pt-sans-bold">Уровни</button>
             <div id="levelDropdown" class="dropdown-content">
               <form action="" method="get">
                 <p class="form-title">Сортировать:</p>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="level" id="levelDefault" value="default"
-                  {% if not request.GET.level or request.GET.level == 'default' %}checked{% endif %}>
+                  <input class="form-check-input" type="radio" name="level" id="levelDefault" value=""
+                  {% if 'level' not in request.GET %}checked{% endif %}>
                   <label class="form-check-label" for="levelDefault">По умолчанию</label>
                 </div>
                 <div class="form-check">
@@ -195,22 +195,25 @@
             </div>
           </div>
         
-          <!-- Фильтрация по протяженности -->
+          <!-- Сортировка по протяженности -->
           <div class="dropdown">
             <button onclick="toggleDropdown('distanceDropdown')" class="dropbtn pt-sans-bold">Протяженность</button>
             <div id="distanceDropdown" class="dropdown-content">
               <form action="" method="get">
                 <p class="form-title">Сортировать:</p>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="distance" id="distanceDefault" value="default" checked>
+                  <input class="form-check-input" type="radio" name="distance" id="distanceDefault" value=""
+                  {% if 'distance' not in request.GET %}checked{% endif %}>
                   <label class="form-check-label" for="distanceDefault">По умолчанию</label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="distance" id="distanceAsc" value="distance">
+                  <input class="form-check-input" type="radio" name="distance" id="distanceAsc" value="distance"
+                  {% if request.GET.distance == 'distance' %}checked{% endif %}>
                   <label class="form-check-label" for="distanceAsc">От коротких к длинным</label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="distance" id="distanceDesc" value="-distance">
+                  <input class="form-check-input" type="radio" name="distance" id="distanceDesc" value="-distance"
+                  {% if request.GET.distance == '-distance' %}checked{% endif %}>
                   <label class="form-check-label" for="distanceDesc">От длинных к коротким</label>
                 </div>
                 <button type="submit" class="btn-submit">Применить</button>
@@ -218,23 +221,26 @@
             </div>
           </div>
         
-          <!-- Фильтрация по продолжительности -->
+          <!-- Сортировка по продолжительности -->
           <div class="dropdown">
             <button onclick="toggleDropdown('durationDropdown')" class="dropbtn pt-sans-bold">Продолжительность</button>
             <div id="durationDropdown" class="dropdown-content">
               <form action="" method="get">
                 <p class="form-title">Сортировать:</p>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="duration" id="durationDefault" value="default" checked>
+                  <input class="form-check-input" type="radio" name="duration" id="durationDefault" value=""
+                  {% if 'duration' not in request.GET %}checked{% endif %}>
                   <label class="form-check-label" for="durationDefault">По умолчанию</label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="duration" id="durationAsc" value="duration">
-                  <label class="form-check-label" for="durationAsc">От небольших к долгим</label>
+                  <input class="form-check-input" type="radio" name="duration" id="durationAsc" value="duration"
+                  {% if request.GET.duration == 'duration' %}checked{% endif %}>
+                  <label class="form-check-label" for="durationAsc">От коротких к длинным</label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="duration" id="durationDesc" value="-duration">
-                  <label class="form-check-label" for="durationDesc">От долгих к небольшим</label>
+                  <input class="form-check-input" type="radio" name="duration" id="durationDesc" value="-duration"
+                  {% if request.GET.duration == '-duration' %}checked{% endif %}>
+                  <label class="form-check-label" for="durationDesc">От длинных к коротким</label>
                 </div>
                 <button type="submit" class="btn-submit">Применить</button>
               </form>

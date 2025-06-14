@@ -24,7 +24,6 @@ class ExportImportMixin:
 
     def export_excel(self, request):
         # Создаем Excel файл
-        from io import BytesIO
         
         wb = Workbook()
         ws = wb.active
