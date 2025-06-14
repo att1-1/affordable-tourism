@@ -12,7 +12,10 @@ from main.models import Route, Skill, AgeGroup, Season, Comment
 def index(request):
     routes = Route.objects.all().prefetch_related('age_groups', 'seasons', 'skills')
 
-
+    # === ФИЛЬТРАЦИЯ по Сезонам ===
+    selected_seasons = request.GET.getlist('season')
+    if selected_seasons:
+        routes = routes.filter(seasons__id__in=selected_seasons).distinct()
 
     # === СОРТИРОВКА ===
     # Сортировка по уровню (возрастным группам)
@@ -42,8 +45,8 @@ def index(request):
             routes = routes.order_by('-duration')
 
     context = {
-        'routes': routes
-        
+        'routes': routes,
+        'all_seasons': Season.objects.all()
     }
     return render(request, 'main/index.html', context)
 

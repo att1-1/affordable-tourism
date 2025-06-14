@@ -246,6 +246,27 @@
               </form>
             </div>
           </div>
+
+          <!-- ФИЛЬТРАЦИЯ по сезону -->
+          <div class="dropdown">
+            <button onclick="toggleDropdown('seasonDropdown')" class="dropbtn pt-sans-bold">Сезон</button>
+            <div id="seasonDropdown" class="dropdown-content">
+              <form action="" method="get">
+                <p class="form-title">Выберите сезоны:</p>
+                {% for season in all_seasons %}
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="season" 
+                         id="season{{ season.id }}" value="{{ season.id }}"
+                         {% if season.id|stringformat:"s" in request.GET.getlist|stringformat:"s" %}checked{% endif %}>
+                  <label class="form-check-label" for="season{{ season.id }}">
+                    {{ season.name }}
+                  </label>
+                </div>
+                {% endfor %}
+                <button type="submit" class="btn-submit">Применить</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
           {% for route in routes %}
