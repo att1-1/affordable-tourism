@@ -180,7 +180,6 @@ class RouteAdmin(ExportImportMixin, admin.ModelAdmin):
     change_list_template = 'admin/routes_change_list.html'
 
 
-
-# Удалите все @admin.register декораторы, если они есть
 admin.site.register(AgeGroup)
 admin.site.register(Season)
+admin.site.register(Skill)

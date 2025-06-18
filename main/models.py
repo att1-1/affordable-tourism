@@ -2,15 +2,23 @@ from django.db import models
 
 class Skill(models.Model):
     code = models.CharField(max_length=10, unique=True, verbose_name='Код навыка')
-    description = models.TextField(verbose_name='Описание')
+    skill_name = models.CharField(unique=True, verbose_name="Название навыка", max_length=500)
+    skill_description = models.CharField(verbose_name="Полное описание навыка", max_length=10000)
+
+
+    class Meta:
+        verbose_name = 'Навык'
+        verbose_name_plural = 'Навыки'
 
     def __str__(self):
-        return f"{self.code} - {self.description}"
+        return f"{self.code} - {self.skill_name}"
 
 
 class AgeGroup(models.Model):
     """Возрастные ступени (III, IV, V и т.д.)"""
     code = models.CharField(max_length=10, unique=True, verbose_name='Код ступени')
+    min_age = models.PositiveIntegerField(verbose_name='Минимальный возраст', default=11)
+    max_age = models.PositiveIntegerField(verbose_name='Максимальный возраст', default=59)
     description = models.TextField(verbose_name='Описание')
 
     class Meta:
