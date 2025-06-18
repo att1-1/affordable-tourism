@@ -2,9 +2,8 @@ from django.db import models
 
 class Skill(models.Model):
     code = models.CharField(max_length=10, unique=True, verbose_name='Код навыка')
-    skill_name = models.CharField(unique=True, verbose_name="Название навыка", max_length=500)
-    skill_description = models.CharField(verbose_name="Полное описание навыка", max_length=10000)
-
+    skill_name = models.CharField(unique=True, verbose_name="Название навыка", max_length=500, blank=True)
+    skill_description = models.CharField(verbose_name="Полное описание навыка", max_length=10000, blank=True)
 
     class Meta:
         verbose_name = 'Навык'
