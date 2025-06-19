@@ -414,9 +414,7 @@
         </ul>
       </div>
     </footer>
-  <script src="{% static "deps/js/script.js" %}">
-
-  </script>
+  <script src="{% static "deps/js/script.js" %}"></script>
   </body>
 </html>
 
@@ -429,7 +427,6 @@
       const modal = document.getElementById('commentsModal');
       modal.style.display = "block";
       
-      // Загрузка комментариев
       fetch(`/get-comments/${routeId}/`)
           .then(response => response.text())
           .then(html => {
@@ -441,30 +438,32 @@
       document.getElementById('commentsModal').style.display = "none";
   }
   
-  // Закрытие при клике вне окна
   window.onclick = function(event) {
       if (event.target == document.getElementById('commentsModal')) {
           closeModal();
       }
   }
   
-  // Отправка формы
   function submitComment(event) {
+    console.log('Форма отправляется');
     event.preventDefault();
     const form = event.target;
     const formData = new FormData(form);
+
+    // Добавляем route_id в данные формы
+    formData.append('route_id', currentRouteId);
     
-    // Получаем CSRF-токен из формы
     const csrfToken = form.querySelector('[name=csrfmiddlewaretoken]').value;
     
     fetch(`/submit-comment/${currentRouteId}/`, {
-        method: 'POST',
-        body: formData,
-        headers: {
-            'X-CSRFToken': csrfToken,
-            'X-Requested-With': 'XMLHttpRequest'
-        }
-    })
+      method: 'POST',
+      body: formData,
+      headers: {
+          'X-CSRFToken': csrfToken,
+          'X-Requested-With': 'XMLHttpRequest'
+      }
+  })
+  
     .then(response => {
         if (!response.ok) throw new Error('Ошибка сети');
         return response.json();
@@ -475,11 +474,12 @@
             const commentsList = form.closest('.comments-section').querySelector('.comments-list');
             commentsList.innerHTML = data.html;
             
-            // Обновляем счетчик комментариев на кнопке
             const commentBtn = document.querySelector(`[data-route-id="${currentRouteId}"]`);
             if (commentBtn) {
                 commentBtn.textContent = `Комментарии (${data.count})`;
             }
+        } else {
+            alert(data.error || 'Ошибка при отправке комментария');
         }
     })
     .catch(error => {
@@ -487,4 +487,4 @@
         alert('Ошибка при отправке комментария');
     });
   }
-  </script>
+</script>

@@ -4,6 +4,10 @@
     
     <form onsubmit="submitComment(event)">
         {% csrf_token %}
+        
+        <!-- Скрытый route_id -->
+        <input type="hidden" name="route_id" value="{{ route.id }}">
+
         <div class="form-group">
             <input 
                 type="text" 

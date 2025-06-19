@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from django.db import transaction
 from openpyxl import Workbook
 from pandas import read_excel
-from .models import Route, AgeGroup, Season, Skill
+from .models import Route, AgeGroup, Season, Skill, Comment
 import tempfile
 from io import BytesIO
 from openpyxl.utils import get_column_letter
@@ -183,3 +183,4 @@ class RouteAdmin(ExportImportMixin, admin.ModelAdmin):
 admin.site.register(AgeGroup)
 admin.site.register(Season)
 admin.site.register(Skill)
+admin.site.register(Comment)

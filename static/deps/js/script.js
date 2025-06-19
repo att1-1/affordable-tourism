@@ -42,3 +42,29 @@ window.onclick = function (event) {
     });
   });
   
+  function submitComment(event) {
+    event.preventDefault();
+  
+    const form = event.target;
+    const formData = new FormData(form);
+    const routeId = formData.get('route_id');
+  
+    fetch('/submit-comment/', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+      }
+    })
+    .then(response => {
+      if (!response.ok) throw new Error('Ошибка при отправке комментария');
+      return response.text();
+    })
+    .then(html => {
+      document.querySelector('#modal-body').innerHTML = html;
+    })
+    .catch(error => {
+      alert(error.message);
+    });
+  }
+  

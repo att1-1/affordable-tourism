@@ -123,7 +123,7 @@ class Comment(models.Model):
         verbose_name='Дата создания'
     )
     is_approved = models.BooleanField(
-        default=False, 
+        default=True,
         verbose_name='Одобрено'
     )
     

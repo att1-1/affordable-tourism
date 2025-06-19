@@ -1,0 +1,11 @@
+{% for comment in comments %}
+  <div class="comment">
+    <div class="comment-header">
+      <span class="author">{{ comment.author_name }}</span>
+      <span class="date">{{ comment.created_at|date:"d.m.Y H:i" }}</span>
+    </div>
+    <p class="comment-text">{{ comment.text }}</p>
+  </div>
+{% empty %}
+  <p>Пока нет комментариев. Будьте первым!</p>
+{% endfor %}
