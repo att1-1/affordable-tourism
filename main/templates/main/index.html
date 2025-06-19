@@ -281,7 +281,7 @@
                         <img src="{% static "deps/images/blank.png" %}" alt="Иконка">
                         <strong>Возрастные ступени:</strong>
                         {% for age_group in route.age_groups.all %}
-                            {{ age_group.code }}{% if not forloop.last %}, {% endif %}
+                          {{ age_group.code }}{% if not forloop.last %}, {% endif %}
                         {% empty %}
                             Не указано
                         {% endfor %}

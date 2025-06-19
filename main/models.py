@@ -27,7 +27,7 @@ class AgeGroup(models.Model):
 
     def __str__(self):
         return str(self.code)
-
+    
 
 class Season(models.Model):
     """Времена года доступности маршрута"""
