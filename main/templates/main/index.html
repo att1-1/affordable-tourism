@@ -318,6 +318,11 @@
                       <strong>Дата проведения:</strong> {{ route.event_dates|default:"Дата не указана" }}
                   </div>
                   <div class="row">
+                    <img src="{% static "deps/images/Calendar.png" %}" alt="Иконка">
+                    <strong>Сезон проведения:</strong>
+                    {{ route.get_seasons_display }}
+                </div>
+                  <div class="row">
                       <img src="{% static "deps/images/home.png" %}" alt="Иконка">
                       <div>
                         <strong>Проводящая организация:</strong> {{ route.organizer_name|default:"Не указана" }}
@@ -339,7 +344,7 @@
                     <div>
                         <strong>Проверяемые навыки:</strong><br>
                         {% for skill in route.skills.all %}
-                            • {{ skill.description }}<br>
+                            • {{ skill.skill_name }}<br>
                         {% empty %}
                             Навыки не указаны
                         {% endfor %}

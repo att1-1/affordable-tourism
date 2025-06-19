@@ -1,3 +1,4 @@
+# pylint: disable=no-member
 from django.db import models
 
 class Skill(models.Model):
@@ -83,6 +84,16 @@ class Route (models.Model):
     route_passport = models.URLField(verbose_name='Паспорт маршрута', blank=True, null=True)
     image = models.ImageField(upload_to='routes_images', verbose_name='Изображение', blank=True, null=True)
     map_link = models.URLField(verbose_name='Ссылка на карту', blank=True, null=True)
+
+
+    # Логика вывода данных из моделей, функции
+    def get_seasons_display(self):
+        seasons = self.seasons.all()
+        if not seasons:
+            return "Сезон не указан"
+        if seasons.count() == 4:
+            return "Круглый год"
+        return ", ".join(season.name for season in seasons)
 
     class Meta:
         verbose_name = 'Маршрут'
