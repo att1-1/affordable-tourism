@@ -8,7 +8,6 @@ from django.db import transaction
 from openpyxl import Workbook
 from pandas import read_excel
 from .models import Route, AgeGroup, Season, Skill, Comment
-import tempfile
 from io import BytesIO
 from openpyxl.utils import get_column_letter
 
@@ -20,16 +19,13 @@ class ExportImportMixin:
             path('export-excel/', self.export_excel),
             path('import-excel/', self.import_excel),
         ]
-        return custom_urls + custom_urls + urls
+        return custom_urls + urls
 
     def export_excel(self, request):
-        # Создаем Excel файл
-        
         wb = Workbook()
         ws = wb.active
         ws.title = "Маршруты"
 
-        # Заголовки
         columns = [
             'ID', 'Название', 'Возрастные ступени', 'Протяженность (км)', 
             'Продолжительность (часы)', 'Способ передвижения', 'Стоимость (руб)',
@@ -38,19 +34,18 @@ class ExportImportMixin:
         ]
         ws.append(columns)
 
-        # Данные
         for route in Route.objects.all():
             ws.append([
                 route.id,
                 route.name,
-                ','.join(str(ag.id) for ag in route.age_groups.all()),
+                ','.join(str(ag.code) for ag in route.age_groups.all()),
                 route.distance,
                 route.duration,
                 route.transportation_method,
                 route.cost,
                 route.event_dates,
                 ','.join(s.name for s in route.seasons.all()),
-                ','.join(sk.description for sk in route.skills.all()),
+                ','.join(sk.code for sk in route.skills.all()),
                 route.organizer_name,
                 route.organizer_phone,
                 route.organizer_email,
@@ -60,27 +55,24 @@ class ExportImportMixin:
                 route.image.url if route.image else ''
             ])
 
-        # Автонастройка ширины
         for col in ws.columns:
             max_length = 0
             column_letter = get_column_letter(col[0].column)
-            
+
             for cell in col:
                 try:
                     value = str(cell.value) if cell.value else ""
                     max_length = max(max_length, len(value))
                 except:
                     pass
-            
+
             adjusted_width = (max_length + 2) * 1.2
             ws.column_dimensions[column_letter].width = adjusted_width
 
-        # Фикс для числовых колонок
         for col in [1, 4, 5, 7]:
             column_letter = get_column_letter(col)
             ws.column_dimensions[column_letter].width = 12
 
-        # Сохраняем файл
         buffer = BytesIO()
         wb.save(buffer)
         buffer.seek(0)
@@ -114,7 +106,6 @@ class ExportImportMixin:
         return render(request, 'admin/import_excel.html', {'form': form})
 
     def process_row(self, row):
-        # Создаем/обновляем маршрут
         route, created = Route.objects.update_or_create(
             id=row['ID'],
             defaults={
@@ -132,47 +123,52 @@ class ExportImportMixin:
                 'map_link': row['Карта'],
             }
         )
-        # Обрабатываем M2M поля
-        self.process_m2m(row['Возрастные ступени'], route.age_groups, AgeGroup, 'code')
-        self.process_m2m(row['Сезоны'], route.seasons, Season, 'name')
-        self.process_m2m(row['Навыки'], route.skills, Skill, 'code')
 
-        skill_descriptions = [s.strip() for s in str(row['Навыки']).split(',') if s.strip()]
-        skills = []
-    
-        for desc in skill_descriptions:
-            skill, created = Skill.objects.get_or_create(
-                description__iexact=desc,  # Поиск без учёта регистра
-                defaults={'code': str(Skill.objects.count() + 1), 'description': desc}
-            )
-            skills.append(skill)
-    
-        route.skills.set(skills)
+        # Обрабатываем M2M поля с правильными lookup и code полями
+        self.process_m2m(row['Возрастные ступени'], route.age_groups, AgeGroup, lookup_field='code', code_field='code')
+        self.process_m2m(row['Сезоны'], route.seasons, Season, lookup_field='name')  # У Season нет code
+        self.process_m2m(row['Навыки'], route.skills, Skill, lookup_field='code', code_field='code')
 
-
-
-    def process_m2m(self, values, m2m_field, model, field='description'):
-        current = set(m2m_field.all())
+    def process_m2m(self, values, m2m_field, model, lookup_field='name', code_field=None):
         new = set()
 
         for value in str(values).split(','):
             value = value.strip()
-            if value:
-                # Нормализация: удаляем лишние пробелы и приводим к нижнему регистру
-                normalized = ' '.join(value.lower().split())
-                
-                # Ищем существующий навык (с учётом нормализации)
-                obj = model.objects.filter(description__iexact=normalized).first()
-                
-                if not obj:
-                    # Создаём новый навык с автоматическим кодом
-                    last_code = model.objects.order_by('-code').first().code
-                    new_code = str(int(last_code) + 1) if last_code else '1'
-                    obj = model.objects.create(code=new_code, description=value)
-                
-                new.add(obj)
-        
+            if not value:
+                continue
+
+            normalized = ' '.join(value.lower().split())
+
+            obj = None
+            for o in model.objects.all():
+                field_value = getattr(o, lookup_field)
+                if field_value:
+                    normalized_field_value = ' '.join(field_value.lower().split())
+                    if normalized_field_value == normalized:
+                        obj = o
+                        break
+
+            if not obj:
+                create_kwargs = {lookup_field: value}
+
+                if code_field:
+                    last_code_obj = model.objects.order_by(f'-{code_field}').first()
+                    if last_code_obj:
+                        last_code = getattr(last_code_obj, code_field)
+                        if last_code and last_code.isdigit():
+                            new_code = str(int(last_code) + 1)
+                        else:
+                            new_code = '1'
+                    else:
+                        new_code = '1'
+                    create_kwargs[code_field] = new_code
+
+                obj = model.objects.create(**create_kwargs)
+
+            new.add(obj)
+
         m2m_field.set(new)
+
 
 @admin.register(Route)
 class RouteAdmin(ExportImportMixin, admin.ModelAdmin):
